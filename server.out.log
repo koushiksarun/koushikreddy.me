@@ -1,0 +1,7 @@
+
+> koushikreddy-portfolio@1.0.0 dev
+> node preview-server.cjs
+
+Port 8000 is in use, trying 8001...
+Local: http://localhost:8000/
+Local: http://localhost:8001/

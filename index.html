@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koushik Sarun Reddy | 3D Library Portfolio</title>
+  <meta
+    name="description"
+    content="Interactive 3D portfolio library for Koushik Sarun Reddy."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css?v=compact-panel-1">
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-book">
+      <div class="loader-cover loader-cover-left"></div>
+      <div class="loader-pages"></div>
+      <div class="loader-cover loader-cover-right"></div>
+    </div>
+    <p class="loader-text">Opening Koushik's library...</p>
+  </div>
+
+  <div class="global-library-scene" id="library-scene" aria-hidden="true">
+    <div id="react-three-library" class="react-three-library"></div>
+    <div class="global-scene-vignette"></div>
+  </div>
+
+  <div class="ui-layer">
+    <div class="top-contact" aria-label="Contact information">
+      <a href="mailto:koushikchess12@gmail.com">koushikchess12@gmail.com</a>
+      <a href="tel:+19402874359">+1 (940) 287-4359</a>
+      <a href="https://github.com/koushiksarun" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/koushik-reddy" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+
+    <div class="top-actions">
+      <a class="resume-button" href="Koushik_yuvachandran_resume.pdf" target="_blank" rel="noreferrer">
+        Resume
+      </a>
+      <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Toggle library sound">
+        Sound
+      </button>
+    </div>
+
+    <section class="book-viewer" id="book-viewer" aria-live="polite" hidden>
+      <div class="book-shell">
+        <button class="book-close" id="book-close" type="button" aria-label="Close book">Close</button>
+        <div class="book-page book-page-left">
+          <p class="book-kicker" id="panel-kicker"></p>
+          <h1 class="book-title" id="panel-title"></h1>
+        </div>
+        <div class="book-page book-page-right">
+          <div id="panel-body" class="panel-body"></div>
+          <div id="panel-tags" class="chip-group"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js?v=compact-panel-1"></script>
+  <script type="module" src="three-app.js?v=compact-panel-1"></script>
+</body>
+</html>
