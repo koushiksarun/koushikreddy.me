@@ -4,7 +4,8 @@ import { GLTFLoader } from "./vendor/GLTFLoader.js";
 const mount = document.getElementById("react-three-library");
 const CHARACTER_MODELS = [
   "./assets/84592a67a317452f.glb",
-  "./assets/alternate-character.glb",
+  "./assets/blue-shirt-character.glb",
+  "./assets/green-shirt-character.glb",
 ];
 
 if (mount) {
@@ -93,6 +94,7 @@ function initLibraryScene(container) {
   let hoveredBook = null;
   let hoveredCharacter = false;
   let lastCharacterClickAt = 0;
+  let lastCharacterToggleAt = 0;
   const pointer = new THREE.Vector2();
   const raycaster = new THREE.Raycaster();
   const keys = {
@@ -144,7 +146,7 @@ function initLibraryScene(container) {
   container.addEventListener("pointermove", (event) => {
     updatePointerFromEvent(event, container, pointer);
     const nextHovered = getBookAtPointer(raycaster, pointer, camera, interactiveTargets);
-    const nextHoveredCharacter = !nextHovered && isCharacterAtPointer(raycaster, pointer, camera, character);
+    const nextHoveredCharacter = !nextHovered && isCharacterAtPointer(raycaster, pointer, camera, character, container);
 
     if (hoveredBook !== nextHovered) {
       if (hoveredBook) {
@@ -180,10 +182,11 @@ function initLibraryScene(container) {
       return;
     }
 
-    if (isCharacterAtPointer(raycaster, pointer, camera, character)) {
+    if (isCharacterAtPointer(raycaster, pointer, camera, character, container)) {
       const now = performance.now();
       if (now - lastCharacterClickAt < 450) {
         toggleCharacterModel(character);
+        lastCharacterToggleAt = now;
         lastCharacterClickAt = 0;
       } else {
         lastCharacterClickAt = now;
@@ -193,8 +196,10 @@ function initLibraryScene(container) {
 
   container.addEventListener("dblclick", (event) => {
     updatePointerFromEvent(event, container, pointer);
-    if (isCharacterAtPointer(raycaster, pointer, camera, character)) {
+    const now = performance.now();
+    if (now - lastCharacterToggleAt > 250 && isCharacterAtPointer(raycaster, pointer, camera, character, container)) {
       toggleCharacterModel(character);
+      lastCharacterToggleAt = now;
     }
   });
 
@@ -598,7 +603,7 @@ function createCharacter() {
   group.add(modelAnchor);
 
   const clickTarget = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.8, 0.72, 3.9, 16),
+    new THREE.CylinderGeometry(1.25, 1.1, 4.6, 18),
     new THREE.MeshBasicMaterial({
       transparent: true,
       opacity: 0,
@@ -656,6 +661,7 @@ function createCharacter() {
     modelAnchor,
     activeModelIndex: 0,
     isModelLoading: false,
+    pendingModelIndex: null,
     modelRoot: null,
     mixer: null,
     walkRig: null,
@@ -751,7 +757,12 @@ function createDust() {
 
 function loadCharacterModel(character, modelIndex) {
   const modelUrl = CHARACTER_MODELS[modelIndex];
-  if (!modelUrl || character.isModelLoading) {
+  if (!modelUrl) {
+    return;
+  }
+
+  if (character.isModelLoading) {
+    character.pendingModelIndex = modelIndex;
     return;
   }
 
@@ -818,27 +829,59 @@ function loadCharacterModel(character, modelIndex) {
         character.walkRig = findHumanoidWalkRig(model);
       }
       character.isModelLoading = false;
+      loadPendingCharacterModel(character);
     },
     undefined,
     (error) => {
       character.isModelLoading = false;
       console.error(`Failed to load character model: ${modelUrl}`, error);
+      loadPendingCharacterModel(character);
     }
   );
 }
 
 function toggleCharacterModel(character) {
-  const nextModelIndex = (character.activeModelIndex + 1) % CHARACTER_MODELS.length;
+  const currentModelIndex = character.pendingModelIndex ?? character.activeModelIndex;
+  const nextModelIndex = (currentModelIndex + 1) % CHARACTER_MODELS.length;
   loadCharacterModel(character, nextModelIndex);
 }
 
-function isCharacterAtPointer(raycaster, pointer, camera, character) {
+function loadPendingCharacterModel(character) {
+  const pendingModelIndex = character.pendingModelIndex;
+  character.pendingModelIndex = null;
+  if (pendingModelIndex !== null && pendingModelIndex !== character.activeModelIndex) {
+    loadCharacterModel(character, pendingModelIndex);
+  }
+}
+
+function isCharacterAtPointer(raycaster, pointer, camera, character, container) {
   if (!character.clickTarget) {
     return false;
   }
 
   raycaster.setFromCamera(pointer, camera);
-  return raycaster.intersectObject(character.clickTarget, false).length > 0;
+  return raycaster.intersectObject(character.clickTarget, false).length > 0
+    || isPointerNearCharacterScreen(pointer, camera, character, container);
+}
+
+function isPointerNearCharacterScreen(pointer, camera, character, container) {
+  if (!container) {
+    return false;
+  }
+
+  character.group.updateWorldMatrix(true, false);
+  const characterCenter = new THREE.Vector3(0, 1.95, 0).applyMatrix4(character.group.matrixWorld);
+  characterCenter.project(camera);
+
+  const width = container.clientWidth || 1;
+  const height = container.clientHeight || 1;
+  const pointerX = ((pointer.x + 1) / 2) * width;
+  const pointerY = ((-pointer.y + 1) / 2) * height;
+  const characterX = ((characterCenter.x + 1) / 2) * width;
+  const characterY = ((-characterCenter.y + 1) / 2) * height;
+  const hitRadius = THREE.MathUtils.clamp(Math.min(width, height) * 0.13, 76, 150);
+
+  return Math.hypot(pointerX - characterX, pointerY - characterY) <= hitRadius;
 }
 
 function disposeObject(object) {
