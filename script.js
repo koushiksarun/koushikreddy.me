@@ -86,34 +86,33 @@ const libraryPanels = {
   },
   projects: {
     kicker: "Projects",
-    title: "Selected work in ML, NLP, and full-stack AI systems.",
-    lead: "The projects show three useful lanes: accurate ML classification, full-stack AI product building, and NLP evaluation.",
+    title: "Selected work in startup platforms and computer vision.",
+    lead: "The project shelf now mirrors the resume: one full-stack AI startup platform and one computer vision traffic system.",
     body: [
-      "Fetal Health Classification: built a tuned Random Forest model that reached 94% accuracy.",
-      "Cocreate: built a Next.js collaboration platform with Prisma, NextAuth, Supabase utilities, Gemini-powered workflows, GitHub webhook automation, and startup review tools.",
-      "Sentiment Analysis on Movie Reviews: designed an NLP pipeline with TF-IDF and Word2Vec and achieved 91% F1-score."
+      "Cocreate - Startup Platform: built a full-stack startup platform with real-time updates and AI integration using TypeScript, React, Prisma, Supabase, and Vercel.",
+      "Traffic Violation Detection System: developed a Python and OpenCV computer vision system for vehicle detection, tracking, and traffic rule violation identification from video or CCTV footage."
     ],
     cards: [
-      { label: "ML RESULT", title: "Fetal Health Classification", text: "Tuned Random Forest model with 94% accuracy for a healthcare classification workflow." },
-      { label: "AI PRODUCT", title: "Cocreate", text: "Next.js, Prisma, NextAuth, Supabase utilities, Gemini workflows, and GitHub webhook automation." },
-      { label: "NLP RESULT", title: "Sentiment Analysis", text: "TF-IDF and Word2Vec pipeline reaching 91% F1-score on movie review sentiment." }
+      { label: "STARTUP PLATFORM", title: "Cocreate", text: "Full-stack startup platform with AI integration, real-time updates, Prisma ORM, Supabase, and Vercel deployment." },
+      { label: "COMPUTER VISION", title: "Traffic Violation Detection System", text: "Python and OpenCV system for vehicle detection, tracking, and violation identification from video footage." }
     ],
-    tags: ["Cocreate", "94% Accuracy", "91% F1", "Next.js + Gemini"]
+    tags: ["Cocreate", "Traffic Detection", "React", "Prisma", "OpenCV"]
   },
   certifications: {
     kicker: "Certifications",
-    title: "Course-backed proof of technical growth.",
-    lead: "This shelf is reserved for credentialed proof and learning milestones that support the AI/data engineering path.",
+    title: "Credential proof for data, ML, and Azure AI.",
+    lead: "The resume lists certificates across analytics, machine learning, and AI fundamentals.",
     body: [
-      "Portfolio work and coursework reflect continued focus on AI, data science, analytics, and engineering delivery.",
-      "This section can be expanded with exact certification names and issuers if you want me to mirror the resume one-to-one."
+      "Google Data Analytics Professional Certificate - Coursera.",
+      "IBM Machine Learning Professional Certificate - Coursera.",
+      "Microsoft Certified: Azure AI Fundamentals (AI-900)."
     ],
     cards: [
-      { label: "AI", title: "Technical Growth", text: "Continued learning around machine learning, analytics, and applied AI systems." },
-      { label: "DATA", title: "Analytics Foundation", text: "Coursework and projects reinforce data handling, visualization, prediction, and evaluation." },
-      { label: "NEXT STEP", title: "Credential Ledger", text: "Ready to expand with exact certificate names and issuers from the latest resume." }
+      { label: "GOOGLE", title: "Data Analytics Professional Certificate", text: "Coursera credential supporting analytics, data handling, and reporting foundations." },
+      { label: "IBM", title: "Machine Learning Professional Certificate", text: "Coursera credential supporting machine learning workflows and model-building fundamentals." },
+      { label: "MICROSOFT", title: "Azure AI Fundamentals (AI-900)", text: "Microsoft certification focused on Azure AI concepts and applied AI fundamentals." }
     ],
-    tags: ["AI", "Data", "Engineering", "Resume Section"]
+    tags: ["Google Data Analytics", "IBM Machine Learning", "Azure AI-900"]
   },
   contact: {
     kicker: "Contact",
@@ -184,7 +183,7 @@ const panelContexts = {
       text: "Coursework covers Machine Learning, Natural Language Processing, Big Data Analytics, Data Visualization, Database Systems, Predictive Analytics, Statistics, and Cloud and DevOps.",
       cards: [
         { label: "ML", title: "Machine Learning", text: "Modeling, training, evaluation, and prediction-oriented workflows." },
-        { label: "NLP", title: "Language Pipelines", text: "Text processing, features, and evaluation for sentiment and language tasks." },
+        { label: "NLP", title: "Language Pipelines", text: "Text processing, features, and evaluation for language-focused AI tasks." },
         { label: "ANALYTICS", title: "Big Data + Stats", text: "Analyzing larger datasets with statistical reasoning and visualization." }
       ],
     },
@@ -245,45 +244,45 @@ const panelContexts = {
   ],
   projects: [
     {
-      eyebrow: "ML PROJECT",
-      title: "Fetal Health Classification",
-      text: "Built and tuned a Random Forest model that reached 94% accuracy.",
+      eyebrow: "STARTUP PLATFORM",
+      title: "Cocreate",
+      text: "Built a full-stack startup platform with real-time updates and AI integration.",
       cards: [
-        { label: "MODEL", title: "Random Forest", text: "A tuned classifier for fetal health prediction." },
-        { label: "RESULT", title: "94% Accuracy", text: "Clear measurable performance target for the classification workflow." },
-        { label: "VALUE", title: "Healthcare Data", text: "A project shaped around meaningful prediction rather than toy data alone." }
+        { label: "STACK", title: "TypeScript + React", text: "Frontend and app logic for a startup-focused product experience." },
+        { label: "DATA", title: "Prisma + Supabase", text: "Scalable backend using Prisma ORM and Supabase database workflows." },
+        { label: "DEPLOYMENT", title: "Vercel", text: "Application deployed with domain integration." }
       ],
     },
     {
-      eyebrow: "FULL-STACK AI",
-      title: "Cocreate + Sentiment Analysis",
-      text: "Cocreate uses Next.js, Prisma, NextAuth, Supabase utilities, Gemini workflows, and GitHub webhook automation. The sentiment project reached 91% F1-score with TF-IDF and Word2Vec.",
+      eyebrow: "COMPUTER VISION",
+      title: "Traffic Violation Detection System",
+      text: "Developed a computer vision system to detect traffic rule violations from video and CCTV footage.",
       cards: [
-        { label: "COCREATE", title: "AI Collaboration Platform", text: "Full-stack app with auth, database, Gemini workflows, and review tooling." },
-        { label: "NLP", title: "Movie Reviews", text: "Sentiment pipeline using TF-IDF and Word2Vec features." },
-        { label: "RESULT", title: "91% F1-score", text: "Evaluation-focused NLP result for sentiment classification." }
+        { label: "STACK", title: "Python + OpenCV", text: "Computer vision pipeline for traffic footage analysis." },
+        { label: "LOGIC", title: "Vehicle Tracking", text: "Implemented vehicle detection, tracking, and violation identification logic." },
+        { label: "USE CASE", title: "Smart City Monitoring", text: "Designed for real-time traffic monitoring and city safety applications." }
       ],
     },
   ],
   certifications: [
     {
-      eyebrow: "CREDENTIAL LEDGER",
-      title: "Proof of technical growth",
-      text: "Portfolio work and coursework reflect continued focus on AI, data science, analytics, and engineering delivery.",
+      eyebrow: "CERTIFICATION LEDGER",
+      title: "Data, ML, and Azure AI credentials",
+      text: "The resume-backed certification shelf highlights credentials across data analytics, machine learning, and AI fundamentals.",
       cards: [
-        { label: "AI", title: "Applied Learning", text: "Work is aligned around machine learning and intelligent systems." },
-        { label: "DATA", title: "Analytics Track", text: "Coursework and projects reinforce data handling, visualization, and evaluation." },
-        { label: "ENGINEERING", title: "Delivery Focus", text: "The emphasis is on building working systems, not only collecting concepts." }
+        { label: "GOOGLE", title: "Data Analytics Professional Certificate", text: "Coursera credential for analytics and data foundations." },
+        { label: "IBM", title: "Machine Learning Professional Certificate", text: "Coursera credential for machine learning practice." },
+        { label: "MICROSOFT", title: "Azure AI Fundamentals", text: "AI-900 certification for Azure AI concepts." }
       ],
     },
     {
-      eyebrow: "NEXT UPDATE",
-      title: "Ready for exact issuers",
-      text: "This section can be expanded with exact certification names and issuers if you want the site to mirror the resume one-to-one.",
+      eyebrow: "RESUME SOURCE",
+      title: "Full details in the latest PDF",
+      text: "The Resume button opens the integrated PDF with the complete certification list and profile details.",
       cards: [
-        { label: "SOURCE", title: "Resume Sync", text: "Add issuer names, dates, and certificate IDs from the latest resume." },
-        { label: "DISPLAY", title: "Evidence Cards", text: "Each credential can become a dedicated mini-card with skills proven." },
-        { label: "FILTER", title: "AI / Data / Cloud", text: "Credentials can be grouped by the role they support." }
+        { label: "SOURCE", title: "Latest Resume", text: "The site uses the updated resume PDF." },
+        { label: "FOCUS", title: "AI / Data / Cloud", text: "Credentials support the same role direction as the projects." },
+        { label: "PROOF", title: "Credential Cards", text: "Each certificate is shown as a direct evidence card." }
       ],
     },
   ],
@@ -483,31 +482,33 @@ const sectionPanels = {
   },
   projects: {
     kicker: "Projects",
-    title: "Projects",
-    lead: "Projects",
+    title: "Selected Projects",
+    lead: "Two resume projects: a full-stack startup platform and a computer vision traffic system.",
     body: [
-      "Fetal Health Classification: built a tuned Random Forest model that reached 94% accuracy.",
-      "Cocreate: built a Next.js collaboration platform with Prisma, NextAuth, Supabase utilities, Gemini-powered workflows, GitHub webhook automation, and startup review tools.",
-      "Sentiment Analysis on Movie Reviews: designed an NLP pipeline with TF-IDF and Word2Vec and achieved 91% F1-score."
+      "Cocreate - Startup Platform uses TypeScript, React, Prisma, Supabase, and Vercel to deliver a full-stack startup platform with real-time updates and AI integration.",
+      "Traffic Violation Detection System uses Python, OpenCV, and computer vision to detect traffic rule violations from video or CCTV footage with vehicle detection and tracking logic."
     ],
     cards: [
-      { label: "ML PROJECT", title: "Fetal Health Classification", text: "Tuned Random Forest model with 94% accuracy for a healthcare classification workflow.", image: "assets/fetal-health.svg", link: "https://github.com/koushiksarun", linkText: "Open Project" },
-      { label: "AI PRODUCT", title: "Cocreate", text: "Next.js, Prisma, NextAuth, Supabase utilities, Gemini workflows, GitHub webhook automation, and startup review tools.", image: "assets/cocreate.svg", link: "https://github.com/koushiksarun/Cocreate", linkText: "Open Cocreate" },
-      { label: "NLP PROJECT", title: "Sentiment Analysis", text: "TF-IDF and Word2Vec pipeline reaching 91% F1-score on movie review sentiment.", image: "assets/sentiment-analysis.svg", link: "https://github.com/koushiksarun", linkText: "Open Project" }
+      { label: "STARTUP PLATFORM", title: "Cocreate", text: "Full-stack platform with real-time updates, AI integration, Prisma ORM, Supabase database workflows, and Vercel deployment.", image: "assets/cocreate.svg", link: "https://github.com/koushiksarun/Cocreate", linkText: "Open Cocreate" },
+      { label: "COMPUTER VISION", title: "Traffic Violation Detection System", text: "Python and OpenCV system for vehicle detection, tracking, and traffic rule violation identification from video footage.", image: "assets/traffic-violation.svg", link: "https://github.com/koushiksarun/traffic-violation-detection-", linkText: "Open Project" }
     ],
-    tags: ["Fetal Health", "Cocreate", "Sentiment Analysis", "Project Links"]
+    tags: ["Cocreate", "Traffic Violation Detection", "TypeScript", "React", "OpenCV"]
   },
   certifications: {
     kicker: "Certifications",
     title: "Certifications",
-    lead: "Certifications",
+    lead: "Credential proof from the latest resume.",
     body: [
-      "Certification details are available in the resume."
+      "Google Data Analytics Professional Certificate - Coursera.",
+      "IBM Machine Learning Professional Certificate - Coursera.",
+      "Microsoft Certified: Azure AI Fundamentals (AI-900)."
     ],
     cards: [
-      { label: "CERTIFICATIONS", title: "Resume Certifications", text: "Use the resume button at the top right to view or download the full certification list.", link: "Koushik_yuvachandran_resume.pdf", linkText: "Open Resume" }
+      { label: "GOOGLE", title: "Data Analytics Professional Certificate", text: "Coursera credential supporting analytics and data foundations." },
+      { label: "IBM", title: "Machine Learning Professional Certificate", text: "Coursera credential supporting machine learning workflows." },
+      { label: "MICROSOFT", title: "Azure AI Fundamentals (AI-900)", text: "Microsoft certification for Azure AI concepts and applied AI fundamentals." }
     ],
-    tags: ["Certifications", "Resume"]
+    tags: ["Google", "IBM", "Microsoft AI-900", "Coursera"]
   }
 };
 

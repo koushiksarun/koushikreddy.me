@@ -2,6 +2,10 @@ import * as THREE from "./vendor/three.module.js";
 import { GLTFLoader } from "./vendor/GLTFLoader.js";
 
 const mount = document.getElementById("react-three-library");
+const CHARACTER_MODELS = [
+  "./assets/84592a67a317452f.glb",
+  "./assets/alternate-character.glb",
+];
 
 if (mount) {
   initLibraryScene(mount);
@@ -9,13 +13,18 @@ if (mount) {
 
 function initLibraryScene(container) {
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color("#16100c");
   scene.fog = new THREE.Fog("#16100c", 14, 40);
 
-  const camera = new THREE.PerspectiveCamera(42, container.clientWidth / container.clientHeight, 0.1, 100);
+  const camera = new THREE.PerspectiveCamera(
+    container.clientWidth < 768 ? 60 : 42,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    100
+  );
   camera.position.set(0, 3.8, 20.5);
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setClearColor(0x000000, 0);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -60,7 +69,7 @@ function initLibraryScene(container) {
 
   const character = createCharacter();
   root.add(character.group);
-  loadCharacterModel(character);
+  loadCharacterModel(character, 0);
 
   loadLibraryModel(root);
 
@@ -76,12 +85,14 @@ function initLibraryScene(container) {
   ]);
   createBookColumn(root, interactiveBooks, interactiveTargets, [
     { key: "experience", title: "Experience", detail: "AI intern + software work", color: "#b66145", x: 4.95, y: 2.95, z: 1.58 },
-    { key: "projects", title: "Projects", detail: "ML, NLP, full-stack AI", color: "#46526a", x: 4.95, y: 1.98, z: 1.58 },
+    { key: "projects", title: "Projects", detail: "startup + traffic CV", color: "#46526a", x: 4.95, y: 1.98, z: 1.58 },
     { key: "certifications", title: "Certifications", detail: "proof of technical growth", color: "#9a7a3a", x: 4.95, y: 1.01, z: 1.58 },
   ]);
 
   let activeBook = null;
   let hoveredBook = null;
+  let hoveredCharacter = false;
+  let lastCharacterClickAt = 0;
   const pointer = new THREE.Vector2();
   const raycaster = new THREE.Raycaster();
   const keys = {
@@ -133,6 +144,7 @@ function initLibraryScene(container) {
   container.addEventListener("pointermove", (event) => {
     updatePointerFromEvent(event, container, pointer);
     const nextHovered = getBookAtPointer(raycaster, pointer, camera, interactiveTargets);
+    const nextHoveredCharacter = !nextHovered && isCharacterAtPointer(raycaster, pointer, camera, character);
 
     if (hoveredBook !== nextHovered) {
       if (hoveredBook) {
@@ -142,8 +154,10 @@ function initLibraryScene(container) {
       if (hoveredBook) {
         setBookHighlight(hoveredBook, true);
       }
-      container.style.cursor = hoveredBook ? "pointer" : "";
     }
+
+    hoveredCharacter = nextHoveredCharacter;
+    container.style.cursor = hoveredBook || hoveredCharacter ? "pointer" : "";
 
     target.x = THREE.MathUtils.clamp(pointer.x * 4.8, walkBounds.minX, walkBounds.maxX);
     target.z = THREE.MathUtils.clamp(2.5 + pointer.y * -2.9, walkBounds.minZ, walkBounds.maxZ);
@@ -155,17 +169,47 @@ function initLibraryScene(container) {
       hoveredBook = null;
       container.style.cursor = "";
     }
+    hoveredCharacter = false;
   });
 
   container.addEventListener("click", (event) => {
     updatePointerFromEvent(event, container, pointer);
-    openBook(getBookAtPointer(raycaster, pointer, camera, interactiveTargets) || hoveredBook);
+    const clickedBook = getBookAtPointer(raycaster, pointer, camera, interactiveTargets) || hoveredBook;
+    if (clickedBook) {
+      openBook(clickedBook);
+      return;
+    }
+
+    if (isCharacterAtPointer(raycaster, pointer, camera, character)) {
+      const now = performance.now();
+      if (now - lastCharacterClickAt < 450) {
+        toggleCharacterModel(character);
+        lastCharacterClickAt = 0;
+      } else {
+        lastCharacterClickAt = now;
+      }
+    }
+  });
+
+  container.addEventListener("dblclick", (event) => {
+    updatePointerFromEvent(event, container, pointer);
+    if (isCharacterAtPointer(raycaster, pointer, camera, character)) {
+      toggleCharacterModel(character);
+    }
   });
 
   const onResize = () => {
     const width = container.clientWidth || 1;
     const height = container.clientHeight || 1;
     camera.aspect = width / height;
+    
+    // Adjust FOV for mobile (portrait) to keep the scene framed
+    if (width < 768) {
+      camera.fov = 60; // Wider FOV for vertical screens
+    } else {
+      camera.fov = 42;
+    }
+    
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
   };
@@ -553,6 +597,18 @@ function createCharacter() {
   const modelAnchor = new THREE.Group();
   group.add(modelAnchor);
 
+  const clickTarget = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.8, 0.72, 3.9, 16),
+    new THREE.MeshBasicMaterial({
+      transparent: true,
+      opacity: 0,
+      depthWrite: false,
+    })
+  );
+  clickTarget.position.set(0, 1.95, 0);
+  clickTarget.userData.isCharacterClickTarget = true;
+  group.add(clickTarget);
+
   const shadow = new THREE.Mesh(
     new THREE.CircleGeometry(0.5, 24),
     new THREE.MeshBasicMaterial({ color: "#110c09", transparent: true, opacity: 0.28 })
@@ -596,7 +652,11 @@ function createCharacter() {
     leftLeg,
     rightLeg,
     placeholderParts: [shadow, head, torso, leftArm, rightArm, leftLeg, rightLeg],
+    clickTarget,
     modelAnchor,
+    activeModelIndex: 0,
+    isModelLoading: false,
+    modelRoot: null,
     mixer: null,
     walkRig: null,
   };
@@ -689,14 +749,21 @@ function createDust() {
   );
 }
 
-function loadCharacterModel(character) {
+function loadCharacterModel(character, modelIndex) {
+  const modelUrl = CHARACTER_MODELS[modelIndex];
+  if (!modelUrl || character.isModelLoading) {
+    return;
+  }
+
+  character.isModelLoading = true;
   const loader = new GLTFLoader();
 
   loader.load(
-    "./assets/84592a67a317452f.glb",
+    modelUrl,
     (gltf) => {
       const model = gltf.scene || gltf.scenes?.[0];
       if (!model) {
+        character.isModelLoading = false;
         return;
       }
 
@@ -722,7 +789,16 @@ function loadCharacterModel(character) {
         }
       });
 
+      if (character.modelRoot) {
+        character.modelAnchor.remove(character.modelRoot);
+        disposeObject(character.modelRoot);
+      }
+
       character.modelAnchor.add(model);
+      character.modelRoot = model;
+      character.activeModelIndex = modelIndex;
+      character.mixer = null;
+      character.walkRig = null;
       character.placeholderParts.forEach((part) => {
         part.visible = false;
       });
@@ -741,12 +817,38 @@ function loadCharacterModel(character) {
       } else {
         character.walkRig = findHumanoidWalkRig(model);
       }
+      character.isModelLoading = false;
     },
     undefined,
     (error) => {
-      console.error("Failed to load character model", error);
+      character.isModelLoading = false;
+      console.error(`Failed to load character model: ${modelUrl}`, error);
     }
   );
+}
+
+function toggleCharacterModel(character) {
+  const nextModelIndex = (character.activeModelIndex + 1) % CHARACTER_MODELS.length;
+  loadCharacterModel(character, nextModelIndex);
+}
+
+function isCharacterAtPointer(raycaster, pointer, camera, character) {
+  if (!character.clickTarget) {
+    return false;
+  }
+
+  raycaster.setFromCamera(pointer, camera);
+  return raycaster.intersectObject(character.clickTarget, false).length > 0;
+}
+
+function disposeObject(object) {
+  object.traverse((child) => {
+    if (child.isMesh) {
+      child.geometry?.dispose();
+      const materials = Array.isArray(child.material) ? child.material : [child.material];
+      materials.forEach((material) => material?.dispose());
+    }
+  });
 }
 
 function selectWalkClip(animations) {

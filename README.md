@@ -13,12 +13,6 @@ Open [index.html](/c:/Users/Admin/Desktop/koushikreddy.me/index.html) in a brows
 3. Under `Build and deployment`, choose `GitHub Actions`.
 4. The workflow in `.github/workflows/deploy.yml` will publish the site automatically on each push to `main`.
 
-## Deploy to Netlify
-
-1. Create a new site in Netlify and import the repository.
-2. Netlify will detect `netlify.toml`.
-3. Publish with the default settings. The site is fully static, so no build command is required.
-
 ## Notes
 
 - The `Cocreate` project card now links directly to its public repository: `https://github.com/koushiksarun/Cocreate`

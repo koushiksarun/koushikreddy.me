@@ -14,7 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
-  <link rel="stylesheet" href="styles.css?v=compact-panel-1">
+  <link rel="stylesheet" href="styles.css?v=resume-menu-1">
 </head>
 <body>
   <div class="loader" id="loader" aria-hidden="true">
@@ -27,6 +27,12 @@
   </div>
 
   <div class="global-library-scene" id="library-scene" aria-hidden="true">
+    <video class="background-video background-video-desktop" autoplay muted loop playsinline preload="auto">
+      <source src="assets/warp-stream-desktop.mp4" type="video/mp4">
+    </video>
+    <video class="background-video background-video-mobile" autoplay muted loop playsinline preload="auto">
+      <source src="assets/warp-stream-mobile.mp4" type="video/mp4">
+    </video>
     <div id="react-three-library" class="react-three-library"></div>
     <div class="global-scene-vignette"></div>
   </div>
@@ -40,9 +46,13 @@
     </div>
 
     <div class="top-actions">
-      <a class="resume-button" href="Koushik_yuvachandran_resume.pdf" target="_blank" rel="noreferrer">
-        Resume
-      </a>
+      <details class="resume-menu">
+        <summary class="resume-button">Resume</summary>
+        <div class="resume-menu-options" aria-label="Resume options">
+          <a href="Koushik_yuvachandran_resume.pdf" target="_blank" rel="noreferrer">Show Resume</a>
+          <a href="Koushik_yuvachandran_resume.pdf" download>Download Resume</a>
+        </div>
+      </details>
       <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Toggle library sound">
         Sound
       </button>
@@ -63,7 +73,7 @@
     </section>
   </div>
 
-  <script src="script.js?v=compact-panel-1"></script>
-  <script type="module" src="three-app.js?v=compact-panel-1"></script>
+  <script src="script.js?v=resume-menu-1"></script>
+  <script type="module" src="three-app.js?v=resume-menu-1"></script>
 </body>
 </html>
