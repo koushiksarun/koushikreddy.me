@@ -765,7 +765,7 @@ if (chatAssistant && chatLauncher && chatPanel && chatMessages && chatSuggestion
   appendChatMessage("assistant", "Hi, I am SLIME AI. Ask me about Koushik's resume, projects, RAG work, or the full-stack chatbot architecture.");
 
   chatLauncher.addEventListener("click", () => {
-    setChatOpen(!chatAssistant.classList.contains("is-open"));
+    setChatOpen(chatPanel.hidden);
   });
 
   chatClose?.addEventListener("click", () => setChatOpen(false));
