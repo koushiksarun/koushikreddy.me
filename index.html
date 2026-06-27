@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
-  <link rel="stylesheet" href="styles.css?v=interactive-upgrades-1">
+  <link rel="stylesheet" href="styles.css?v=chat-assistant-1">
 </head>
 <body>
   <div class="loader" id="loader" aria-hidden="true">
@@ -74,9 +74,30 @@
         </div>
       </div>
     </section>
+
+    <aside class="chat-assistant" id="chat-assistant" aria-label="Portfolio chat assistant">
+      <button class="chat-launcher" id="chat-launcher" type="button" aria-expanded="false" aria-controls="chat-panel">
+        <span>Ask Koushik AI</span>
+      </button>
+      <section class="chat-panel" id="chat-panel" hidden>
+        <header class="chat-header">
+          <div>
+            <span>Portfolio Assistant</span>
+            <strong>Ask about Koushik's AI work</strong>
+          </div>
+          <button id="chat-close" type="button" aria-label="Close chat">Close</button>
+        </header>
+        <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+        <div class="chat-suggestions" id="chat-suggestions" aria-label="Suggested questions"></div>
+        <form class="chat-form" id="chat-form">
+          <input id="chat-input" type="text" autocomplete="off" placeholder="Ask a recruiter question..." aria-label="Ask the portfolio assistant">
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </aside>
   </div>
 
-  <script src="script.js?v=interactive-upgrades-1"></script>
-  <script type="module" src="three-app.js?v=interactive-upgrades-1"></script>
+  <script src="script.js?v=chat-assistant-1"></script>
+  <script type="module" src="three-app.js?v=chat-assistant-1"></script>
 </body>
 </html>

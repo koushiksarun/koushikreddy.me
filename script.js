@@ -516,88 +516,6 @@ const sectionPanels = {
       { label: "MICROSOFT", title: "Azure AI Fundamentals (AI-900)", text: "Microsoft certification for Azure AI concepts and applied AI fundamentals." }
     ],
     tags: ["Google", "IBM", "Microsoft AI-900", "Coursera"]
-  },
-  demoLab: {
-    kicker: "Demo Lab",
-    title: "Interactive project simulations from the AI chatbot stack.",
-    lead: "A recruiter-friendly preview of the systems behind the chatbot zip: streaming chat, RAG retrieval, memory, tools, and human-reviewed feedback.",
-    body: [
-      "The AI chatbot is a production-grade full-stack application with a Next.js 15 frontend, FastAPI backend, LangChain orchestration, LlamaIndex RAG, PostgreSQL, Redis, and ChromaDB or Pinecone vector storage.",
-      "These mini demos show the important product behaviors without requiring a backend server."
-    ],
-    layout: "demoLab",
-    demos: [
-      {
-        label: "CHAT STREAM",
-        title: "SLIME Chatbot",
-        prompt: "How do you answer with memory and citations?",
-        output: "I load conversation context, retrieve relevant document chunks, stream the response, and attach source citations.",
-        meta: ["Next.js", "SSE", "FastAPI", "Gemini/OpenAI"]
-      },
-      {
-        label: "RAG PIPELINE",
-        title: "Document Retrieval",
-        prompt: "Upload -> chunk -> embed -> retrieve",
-        output: "PDF/DOCX/TXT files become 512-token chunks, embeddings are stored in ChromaDB or Pinecone, and top matches are injected into the answer.",
-        meta: ["LlamaIndex", "Embeddings", "Vector DB", "Citations"]
-      },
-      {
-        label: "AGENT MODE",
-        title: "Tools + Guardrails",
-        prompt: "Use tools only when useful.",
-        output: "The ReAct agent can call calculator, weather, or web search tools while FastAPI middleware handles auth, rate limits, and prompt-injection checks.",
-        meta: ["LangChain", "JWT", "Redis", "Security"]
-      }
-    ],
-    tags: ["Demo Lab", "Streaming Chat", "RAG", "Agents"]
-  },
-  skillMap: {
-    kicker: "Skill Constellation",
-    title: "A connected map of the stack I use to build AI systems.",
-    lead: "Skills are grouped by how they work together in real applications: model layer, retrieval layer, backend layer, product layer, data layer, and delivery layer.",
-    body: [
-      "This constellation turns the resume skill list into a system map, making it easier to see how Python, FastAPI, LangChain, RAG, React, databases, Docker, and cloud tooling connect.",
-      "Hover or scan each cluster to see the tools I use in that part of the AI product lifecycle."
-    ],
-    layout: "skillMap",
-    clusters: [
-      { label: "MODEL", title: "AI / ML", skills: ["PyTorch", "TensorFlow", "Scikit-Learn", "NLP", "Computer Vision", "Fine-Tuning"] },
-      { label: "RETRIEVAL", title: "RAG Systems", skills: ["LangChain", "LlamaIndex", "Embeddings", "Semantic Search", "ChromaDB", "Pinecone"] },
-      { label: "BACKEND", title: "APIs + Security", skills: ["FastAPI", "REST APIs", "JWT", "Rate Limiting", "Prompt Injection Checks", "Redis"] },
-      { label: "PRODUCT", title: "Frontend", skills: ["Next.js", "React", "TypeScript", "Tailwind", "SSE Streaming", "Zustand"] },
-      { label: "DATA", title: "Storage", skills: ["PostgreSQL", "SQLAlchemy", "Alembic", "Pandas", "NumPy", "BigQuery"] },
-      { label: "DELIVERY", title: "Cloud + CI", skills: ["Docker", "GitHub Actions", "AWS", "Azure AI", "Nginx", "CI/CD"] }
-    ],
-    tags: ["Skill Map", "AI Systems", "RAG", "Cloud"]
-  },
-  assistant: {
-    kicker: "AI Assistant",
-    title: "A guided portfolio assistant for quick recruiter questions.",
-    lead: "This scripted assistant gives fast answers about my strengths, chatbot architecture, projects, and role fit. It is designed so it can later be connected to the real RAG backend.",
-    body: [
-      "Ask one of the prepared questions to get a concise answer based on the resume and chatbot project.",
-      "The assistant intentionally stays grounded in portfolio facts instead of free-form guessing."
-    ],
-    layout: "assistant",
-    prompts: [
-      {
-        question: "What is Koushik strongest at?",
-        answer: "Koushik is strongest at building applied AI systems: LLM applications, RAG pipelines, FastAPI backends, vector search, and computer vision workflows."
-      },
-      {
-        question: "What is inside the chatbot project?",
-        answer: "The chatbot includes a Next.js 15 frontend, FastAPI backend, LangChain orchestration, LlamaIndex RAG, PostgreSQL, Redis, vector storage, JWT auth, agents, memory, and RLHF feedback review."
-      },
-      {
-        question: "Which roles fit this portfolio?",
-        answer: "Best-fit roles include AI Engineer, Machine Learning Engineer, Generative AI Engineer, RAG Engineer, AI Backend Engineer, and applied AI internship roles."
-      },
-      {
-        question: "Why is this portfolio different?",
-        answer: "It does not only list skills. It turns the resume into an interactive 3D library with project simulations, a skill system map, and an assistant-style recruiter path."
-      }
-    ],
-    tags: ["Portfolio Assistant", "Recruiter Guide", "RAG Ready"]
   }
 };
 
@@ -611,92 +529,6 @@ const renderCard = (card) => `
   </article>
 `;
 
-const renderDemoLab = (panel) => `
-  <div class="demo-lab">
-    ${panel.demos.map((demo) => `
-      <article class="demo-card">
-        <span>${demo.label}</span>
-        <strong>${demo.title}</strong>
-        <div class="demo-terminal">
-          <p class="demo-prompt">${demo.prompt}</p>
-          <p>${demo.output}</p>
-        </div>
-        <div class="demo-meta">
-          ${demo.meta.map((item) => `<em>${item}</em>`).join("")}
-        </div>
-      </article>
-    `).join("")}
-  </div>
-`;
-
-const renderSkillMap = (panel) => `
-  <div class="skill-map">
-    ${panel.clusters.map((cluster) => `
-      <article class="skill-node">
-        <span>${cluster.label}</span>
-        <strong>${cluster.title}</strong>
-        <div>
-          ${cluster.skills.map((skill) => `<em>${skill}</em>`).join("")}
-        </div>
-      </article>
-    `).join("")}
-  </div>
-`;
-
-const renderAssistant = (panel) => `
-  <div class="assistant-console">
-    <div class="assistant-screen" id="assistant-screen">
-      <span>PORTFOLIO ASSISTANT</span>
-      <strong>Ask me about Koushik's AI work.</strong>
-      <p>${panel.prompts[0].answer}</p>
-    </div>
-    <div class="assistant-questions">
-      ${panel.prompts.map((prompt, index) => `
-        <button type="button" data-assistant-answer="${index}">${prompt.question}</button>
-      `).join("")}
-    </div>
-  </div>
-`;
-
-const renderCustomPanel = (panel) => {
-  if (panel.layout === "demoLab") {
-    return renderDemoLab(panel);
-  }
-
-  if (panel.layout === "skillMap") {
-    return renderSkillMap(panel);
-  }
-
-  if (panel.layout === "assistant") {
-    return renderAssistant(panel);
-  }
-
-  return "";
-};
-
-const bindPanelInteractions = (panel) => {
-  if (panel.layout !== "assistant") {
-    return;
-  }
-
-  const screen = document.getElementById("assistant-screen");
-  const buttons = panelBody.querySelectorAll("[data-assistant-answer]");
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const prompt = panel.prompts[Number(button.dataset.assistantAnswer)];
-      if (!prompt || !screen) {
-        return;
-      }
-
-      screen.innerHTML = `
-        <span>PORTFOLIO ASSISTANT</span>
-        <strong>${prompt.question}</strong>
-        <p>${prompt.answer}</p>
-      `;
-    });
-  });
-};
-
 const renderPanel = (key) => {
   const panel = sectionPanels[key];
   if (!panel || !bookViewer || !panelKicker || !panelTitle || !panelBody || !panelTags) {
@@ -707,14 +539,12 @@ const renderPanel = (key) => {
   panelTitle.textContent = panel.title;
   const lead = panel.lead ? `<p class="panel-lead">${panel.lead}</p>` : "";
   const body = panel.body.map((text) => `<p>${text}</p>`).join("");
-  const cards = panel.cards ? panel.cards.map(renderCard).join("") : "";
-  const custom = renderCustomPanel(panel);
+  const cards = panel.cards.map(renderCard).join("");
   panelBody.innerHTML = `
     ${lead}
     <div class="panel-copy">${body}</div>
-    ${custom || `<div class="record-grid">${cards}</div>`}
+    <div class="record-grid">${cards}</div>
   `;
-  bindPanelInteractions(panel);
   panelTags.innerHTML = "";
   bookViewer.hidden = false;
   bookViewer.classList.remove("is-opening");
@@ -735,6 +565,171 @@ window.addEventListener("library-panel-select", (event) => {
     renderPanel(key);
   }
 });
+
+const chatAssistant = document.getElementById("chat-assistant");
+const chatLauncher = document.getElementById("chat-launcher");
+const chatPanel = document.getElementById("chat-panel");
+const chatClose = document.getElementById("chat-close");
+const chatMessages = document.getElementById("chat-messages");
+const chatSuggestions = document.getElementById("chat-suggestions");
+const chatForm = document.getElementById("chat-form");
+const chatInput = document.getElementById("chat-input");
+
+const assistantSuggestions = [
+  "What roles is Koushik a fit for?",
+  "Tell me about the AI chatbot project.",
+  "What is his RAG experience?",
+  "What is his tech stack?",
+  "How can I contact him?"
+];
+
+const assistantKnowledge = [
+  {
+    keywords: ["chatbot", "slime", "zip", "project", "architecture", "app"],
+    answer: "The AI chatbot project is a production-grade full-stack generative AI app. It uses Next.js 15, React, TypeScript, Tailwind, and Zustand on the frontend; FastAPI and Python 3.12 on the backend; LangChain for orchestration; LlamaIndex for RAG; PostgreSQL for users/chats/documents/feedback; Redis for caching and rate limits; and ChromaDB or Pinecone for vector search."
+  },
+  {
+    keywords: ["rag", "retrieval", "embedding", "vector", "document", "citation", "llamaindex"],
+    answer: "Koushik's RAG work includes document upload, text extraction, chunking, embeddings, vector storage, semantic retrieval, and citation-backed responses. In the chatbot architecture, PDF/DOCX/TXT files are chunked, embedded, stored in ChromaDB or Pinecone, retrieved by similarity, and injected into the LLM prompt as grounded context."
+  },
+  {
+    keywords: ["memory", "conversation", "context", "history"],
+    answer: "The chatbot design includes short-term conversation memory from recent messages and long-term summaries for longer chats. It can also keep user profile facts, so responses can stay contextual instead of treating every message as isolated."
+  },
+  {
+    keywords: ["agent", "tools", "tool", "calculator", "weather", "search"],
+    answer: "The chatbot supports agent-style behavior through LangChain ReAct tools. Planned tools include web search, calculator, and weather, with the backend deciding when tool use is useful rather than always calling a tool."
+  },
+  {
+    keywords: ["security", "auth", "jwt", "rate", "prompt injection", "guardrail", "safe"],
+    answer: "The chatbot architecture includes JWT authentication, bcrypt password hashing, Redis-backed rate limiting, file upload validation, role-based access control, CORS allowlists, and prompt-injection pattern checks before LLM calls."
+  },
+  {
+    keywords: ["rlhf", "feedback", "fine", "training", "human"],
+    answer: "The project includes a human-in-the-loop RLHF pipeline: users rate answers, admins review feedback, approved examples are exported as training data, and fine-tuning/evaluation scripts support model improvement. The model does not retrain itself automatically."
+  },
+  {
+    keywords: ["skill", "stack", "technology", "tech", "language", "tools"],
+    answer: "Koushik's core stack includes Python, C++, SQL, JavaScript, Java, TypeScript, PyTorch, TensorFlow, Scikit-Learn, FastAPI, React.js, Next.js, LangChain, LangGraph, LlamaIndex, PostgreSQL, Supabase, Redis, Docker, AWS, Azure AI, GitHub Actions, and CI/CD workflows."
+  },
+  {
+    keywords: ["role", "fit", "job", "intern", "position", "hire"],
+    answer: "Best-fit roles include AI Engineer, Machine Learning Engineer, Generative AI Engineer, RAG Engineer, AI Backend Engineer, Computer Vision Engineer, and AI/ML internship roles. His portfolio is strongest where LLMs, retrieval, backend APIs, automation, and product delivery meet."
+  },
+  {
+    keywords: ["experience", "hirello", "sithafal", "internship", "work"],
+    answer: "Koushik worked as an AI Intern at Hirello AI from Apr 2026 to May 2026, building Gemini API applications, RAG systems, semantic search, prompt optimization, and conversational memory. He also worked as a Generative AI Intern at Sithafal Technologies from Dec 2023 to May 2024, building AI solutions, automation tools, preprocessing workflows, feature engineering, testing, and optimization."
+  },
+  {
+    keywords: ["education", "university", "unt", "degree", "gpa", "graduate"],
+    answer: "Koushik graduated in May 2026 with an M.S. in Information Science from the University of North Texas with a 4.0 GPA. His coursework included Machine Learning, Data Analytics, Information Retrieval, Database Systems, and Cloud Computing."
+  },
+  {
+    keywords: ["project", "projects", "research", "traffic", "computer vision", "cv"],
+    answer: "His featured projects include SLIME, an AI chatbot platform; an LLM-powered research assistant using LangChain, FAISS, PyTorch, vector databases, and summarization; and a multi-modal traffic event understanding system using PyTorch, OpenCV, and TensorFlow for object detection, tracking, and event classification."
+  },
+  {
+    keywords: ["contact", "email", "phone", "linkedin", "github", "reach"],
+    answer: "You can reach Koushik at koushikchess12@gmail.com or +1 (940) 287-4359. GitHub: github.com/koushiksarun. LinkedIn: linkedin.com/in/koushik-sarun-reddy-741b86309."
+  },
+  {
+    keywords: ["resume", "download", "cv"],
+    answer: "Use the Resume button in the top-right corner. Show Resume opens a visual preview, and Download Resume downloads the PDF."
+  }
+];
+
+const escapeHtml = (value) => value
+  .replace(/&/g, "&amp;")
+  .replace(/</g, "&lt;")
+  .replace(/>/g, "&gt;")
+  .replace(/"/g, "&quot;")
+  .replace(/'/g, "&#039;");
+
+const appendChatMessage = (role, text) => {
+  if (!chatMessages) {
+    return;
+  }
+
+  const message = document.createElement("div");
+  message.className = `chat-message chat-message-${role}`;
+  message.innerHTML = `<p>${escapeHtml(text)}</p>`;
+  chatMessages.appendChild(message);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+};
+
+const getAssistantAnswer = (question) => {
+  const normalized = question.toLowerCase();
+  let bestMatch = null;
+  let bestScore = 0;
+
+  assistantKnowledge.forEach((item) => {
+    const score = item.keywords.reduce((total, keyword) => (
+      normalized.includes(keyword) ? total + keyword.length : total
+    ), 0);
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestMatch = item;
+    }
+  });
+
+  if (bestMatch) {
+    return bestMatch.answer;
+  }
+
+  return "I can help with Koushik's resume, AI chatbot project, RAG work, skills, experience, projects, or contact details. Try asking: \"What is inside the chatbot project?\" or \"What roles is Koushik a fit for?\"";
+};
+
+const askAssistant = (question) => {
+  const trimmed = question.trim();
+  if (!trimmed) {
+    return;
+  }
+
+  appendChatMessage("user", trimmed);
+  window.setTimeout(() => {
+    appendChatMessage("assistant", getAssistantAnswer(trimmed));
+  }, 240);
+};
+
+const setChatOpen = (open) => {
+  if (!chatAssistant || !chatPanel || !chatLauncher) {
+    return;
+  }
+
+  chatAssistant.classList.toggle("is-open", open);
+  chatPanel.hidden = !open;
+  chatLauncher.setAttribute("aria-expanded", String(open));
+
+  if (open) {
+    window.setTimeout(() => chatInput?.focus(), 80);
+  }
+};
+
+if (chatAssistant && chatLauncher && chatPanel && chatMessages && chatSuggestions && chatForm && chatInput) {
+  assistantSuggestions.forEach((suggestion) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = suggestion;
+    button.addEventListener("click", () => askAssistant(suggestion));
+    chatSuggestions.appendChild(button);
+  });
+
+  appendChatMessage("assistant", "Hi, I can answer recruiter questions about Koushik's AI work, resume, projects, and the full-stack chatbot project.");
+
+  chatLauncher.addEventListener("click", () => {
+    setChatOpen(!chatAssistant.classList.contains("is-open"));
+  });
+
+  chatClose?.addEventListener("click", () => setChatOpen(false));
+
+  chatForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const question = chatInput.value;
+    chatInput.value = "";
+    askAssistant(question);
+  });
+}
 
 if (prefersReducedMotion) {
   hideLoader();
