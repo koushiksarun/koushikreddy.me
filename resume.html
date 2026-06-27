@@ -57,12 +57,20 @@
       white-space: nowrap;
     }
 
-    .resume-frame {
+    .resume-preview {
+      min-height: calc(100vh - 3.6rem);
+      padding: 1.5rem;
+      background: #1f2937;
+    }
+
+    .resume-preview img {
       display: block;
-      width: 100%;
-      height: calc(100vh - 3.6rem);
-      border: 0;
+      width: min(100%, 980px);
+      height: auto;
+      margin: 0 auto;
+      border-radius: 4px;
       background: #ffffff;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
     }
 
     @media (max-width: 560px) {
@@ -71,8 +79,9 @@
         flex-direction: column;
       }
 
-      .resume-frame {
-        height: calc(100vh - 6.8rem);
+      .resume-preview {
+        min-height: calc(100vh - 6.8rem);
+        padding: 0.75rem;
       }
     }
   </style>
@@ -85,10 +94,8 @@
       <a href="koushiksarunreddy_yuvachandran_resume.pdf" download="koushiksarunreddy_yuvachandran_resume.pdf" type="application/pdf">Download</a>
     </nav>
   </header>
-  <iframe
-    class="resume-frame"
-    src="koushiksarunreddy_yuvachandran_resume.pdf#toolbar=1&navpanes=0"
-    title="Koushik Sarun Reddy resume"
-  ></iframe>
+  <main class="resume-preview">
+    <img src="assets/resume-preview.png" alt="Preview of Koushik Sarun Reddy's resume">
+  </main>
 </body>
 </html>
