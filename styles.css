@@ -152,6 +152,7 @@ body.is-loading {
 .top-actions,
 .resume-menu,
 .resume-button,
+.resume-link,
 .sound-toggle,
 .book-viewer {
   pointer-events: auto;
@@ -202,7 +203,8 @@ body.is-loading {
 }
 
 .top-contact a,
-.resume-button {
+.resume-button,
+.resume-link {
   text-decoration: none;
 }
 
@@ -224,6 +226,7 @@ body.is-loading {
 
 .top-contact a:hover,
 .resume-button:hover,
+.resume-link:hover,
 .sound-toggle:hover {
   background: var(--button-bg-hover);
   border-color: rgba(246, 196, 83, 0.95);
@@ -254,6 +257,7 @@ body.is-loading {
 }
 
 .resume-button,
+.resume-link,
 .sound-toggle {
   min-width: 5.8rem;
   border: 1px solid rgba(255, 255, 255, 0.78);
@@ -270,8 +274,13 @@ body.is-loading {
   animation: buttonFloat 4.2s ease-in-out infinite;
 }
 
-.resume-button {
+.resume-button,
+.resume-link {
   display: block;
+}
+
+.resume-link {
+  white-space: nowrap;
 }
 
 .resume-button::after {
@@ -329,11 +338,13 @@ body.is-loading {
 
 .top-contact a:nth-child(1),
 .resume-button,
+.resume-link:nth-child(1),
 .resume-menu-options a:nth-child(1) {
   animation-delay: 0s;
 }
 
 .top-contact a:nth-child(2),
+.resume-link:nth-child(2),
 .sound-toggle,
 .resume-menu-options a:nth-child(2) {
   animation-delay: 0.6s;
@@ -670,6 +681,7 @@ body.is-loading {
 
 .top-contact a:focus-visible,
 .resume-button:focus-visible,
+.resume-link:focus-visible,
 .resume-menu-options a:focus-visible,
 .sound-toggle:focus-visible,
 .record-card a:focus-visible,
@@ -797,9 +809,10 @@ body.is-loading {
   }
 
   .resume-button,
+  .resume-link,
   .sound-toggle {
     min-width: 4.3rem;
-    padding: 0.72rem 0.9rem;
+    padding: 0.72rem 0.78rem;
     font-size: 0.86rem;
   }
 

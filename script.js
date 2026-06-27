@@ -11,92 +11,95 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 const libraryPanels = {
   summary: {
     kicker: "Summary",
-    title: "AI/ML Engineer with a builder's mindset.",
-    lead: "A compact profile of how I build: applied ML, useful automation, clean backend workflows, and product-minded AI systems.",
+    title: "AI engineer building LLM, RAG, and computer vision systems.",
+    lead: "A compact profile of the resume focus: LLM-powered apps, retrieval systems, computer vision, and scalable AI software.",
     body: [
-      "Skilled AI/ML engineer with experience in machine learning, data analysis, LLM integrations, forecasting, and backend automation.",
-      "Currently pursuing an M.S. in Information Science at the University of North Texas with a 4.0 GPA while building practical AI systems."
+      "AI Engineer with experience developing LLM-powered applications, Retrieval-Augmented Generation systems, and computer vision solutions.",
+      "Graduated with an M.S. in Information Science from the University of North Texas with a 4.0 GPA."
     ],
     cards: [
-      { label: "CORE SIGNAL", title: "Applied AI", text: "Machine learning, LLM integrations, forecasting, and automation built around real workflows." },
-      { label: "OPERATING STYLE", title: "Builder Mode", text: "I like shipping practical systems, measuring outcomes, and tightening the user path." },
-      { label: "CURRENT ARC", title: "Graduate + Product Work", text: "M.S. coursework and hands-on projects are aimed at AI systems that feel usable, not theoretical." }
+      { label: "CORE SIGNAL", title: "LLM Applications", text: "Gemini API, LangChain, prompt engineering, conversational memory, and AI automation." },
+      { label: "RETRIEVAL", title: "RAG Systems", text: "Embeddings, vector databases, semantic search, and retrieval-based knowledge workflows." },
+      { label: "VISION", title: "Computer Vision", text: "Deep learning, object detection, tracking, and multimodal traffic event understanding." }
     ],
-    tags: ["4.0 GPA", "Machine Learning", "LLM Integration", "Python"]
+    tags: ["4.0 GPA", "LLMs", "RAG", "Computer Vision", "Python"]
   },
   education: {
     kicker: "Education",
     title: "University of North Texas, M.S. Information Science.",
-    lead: "The academic track gives structure to the engineering work: data systems, applied AI, analytics, and software delivery.",
+    lead: "The academic track supports AI systems, retrieval, analytics, databases, and cloud computing.",
     body: [
-      "Pursuing a Master of Science in Information Science at the University of North Texas with a 4.0 GPA.",
-      "Academic work is centered on applied AI, data systems, analytics, and practical software delivery."
+      "Master of Science in Information Science at the University of North Texas, Denton, TX.",
+      "Graduated May 2026 with a 4.0 GPA."
     ],
     cards: [
       { label: "PROGRAM", title: "M.S. Information Science", text: "Graduate study focused on data, AI, analytics, and information systems." },
-      { label: "PERFORMANCE", title: "4.0 GPA", text: "Strong academic performance while building portfolio projects and applied systems." },
-      { label: "LOCATION", title: "Dallas, TX", text: "Studying and building in a strong market for AI, data, and software opportunities." }
+      { label: "GRADUATION", title: "May 2026", text: "Completed the master's program with strong academic performance." },
+      { label: "PERFORMANCE", title: "4.0 GPA", text: "Coursework centered on AI, analytics, retrieval, data systems, and cloud computing." }
     ],
-    tags: ["UNT", "M.S. Information Science", "4.0 GPA", "Dallas, TX"]
+    tags: ["UNT", "M.S. Information Science", "May 2026", "4.0 GPA"]
   },
   coursework: {
     kicker: "Coursework",
-    title: "Graduate work focused on data, AI, and delivery.",
-    lead: "The coursework map connects core ML ideas with the systems needed to deploy and explain them.",
+    title: "Graduate work focused on AI, retrieval, data, and cloud systems.",
+    lead: "The coursework map connects model-building with retrieval, databases, analytics, and cloud foundations.",
     body: [
-      "Coursework includes Machine Learning, Natural Language Processing, Big Data Analytics, Data Visualization, Database Systems, Predictive Analytics, Statistics, and Cloud and DevOps.",
-      "The focus has been balancing analytical depth with practical engineering and product-minded execution."
+      "Coursework includes Machine Learning, Data Analytics, Information Retrieval, Database Systems, and Cloud Computing.",
+      "The focus has been balancing analytical depth with practical AI engineering and deployable systems."
     ],
     cards: [
-      { label: "INTELLIGENCE", title: "ML + NLP", text: "Modeling, language pipelines, predictive analytics, and evaluation." },
-      { label: "DATA CORE", title: "Big Data + Databases", text: "Data storage, querying, scalable analytics, and systems thinking." },
-      { label: "DELIVERY", title: "Cloud + DevOps", text: "The deployment layer that turns experiments into usable software." }
+      { label: "INTELLIGENCE", title: "Machine Learning", text: "Modeling, training, evaluation, and prediction-oriented workflows." },
+      { label: "RETRIEVAL", title: "Information Retrieval", text: "Retrieval thinking that supports semantic search and RAG systems." },
+      { label: "SYSTEMS", title: "Databases + Cloud", text: "Database systems and cloud computing foundations for deployable AI software." }
     ],
-    tags: ["NLP", "Big Data", "Visualization", "Cloud & DevOps"]
+    tags: ["Machine Learning", "Data Analytics", "Information Retrieval", "Cloud Computing"]
   },
   skills: {
     kicker: "Skills",
-    title: "Built across ML, data, backend, and product tooling.",
-    lead: "The stack is shaped around building AI features end to end: data, model logic, backend, frontend, and deployment wiring.",
+    title: "Built across AI systems, data, backend, and cloud tooling.",
+    lead: "The stack is shaped around building AI features end to end: data, model logic, retrieval, backend APIs, and deployment wiring.",
     body: [
-      "Core stack includes Python, SQL, JavaScript, React, Next.js, machine learning workflows, data analysis, and backend automation.",
-      "Hands-on exposure includes LLM integrations, Gemini-powered features, Prisma, NextAuth, Supabase utilities, GitHub webhooks, and deployment workflows."
+      "Languages include Python, C++, SQL, JavaScript, Java, and TypeScript.",
+      "AI stack includes PyTorch, TensorFlow, Scikit-Learn, Generative AI, LLMs, RAG, Deep Learning, Computer Vision, NLP, LangChain, LangGraph, AI Agents, Prompt Engineering, Embeddings, Vector Databases, Semantic Search, and Fine-Tuning.",
+      "Systems stack includes PySpark, ETL pipelines, Pandas, NumPy, BigQuery, AWS, Azure AI, Docker, Git, GitHub, CI/CD, FastAPI, React.js, REST APIs, MySQL, PostgreSQL, and Supabase."
     ],
     cards: [
-      { label: "AI / DATA", title: "Python + SQL", text: "Data analysis, ML workflows, backend automation, and query-driven product logic." },
-      { label: "PRODUCT", title: "React + Next.js", text: "Interfaces, full-stack flows, auth, and app structure for AI-enabled tools." },
-      { label: "INTEGRATION", title: "LLMs + Prisma", text: "Gemini workflows, database-backed features, Supabase utilities, and webhook automation." }
+      { label: "AI / ML", title: "PyTorch + TensorFlow", text: "Deep learning, generative AI, NLP, computer vision, and model optimization." },
+      { label: "AI SYSTEMS", title: "LangChain + RAG", text: "Agents, semantic search, embeddings, vector databases, and prompt engineering." },
+      { label: "BACKEND", title: "FastAPI + Cloud", text: "REST APIs, data pipelines, Docker, CI/CD, AWS, Azure AI, and database-backed apps." }
     ],
-    tags: ["Python", "SQL", "React", "Next.js", "Prisma", "LLMs"]
+    tags: ["Python", "PyTorch", "FastAPI", "LangChain", "RAG", "Docker"]
   },
   experience: {
     kicker: "Experience",
-    title: "Internship work across AI, automation, and software delivery.",
-    lead: "The work experience is anchored in shipping practical AI and automation features, with enough frontend/backend overlap to understand the whole product path.",
+    title: "Internship work across LLMs, RAG, automation, and generative AI.",
+    lead: "The work experience is anchored in building practical AI workflows, retrieval systems, automation tools, and optimized model-facing features.",
     body: [
-      "Hirello AI, AI Developer Intern, Apr 2026 to Present: integrated Gemini API workflows, built Python backend features, contributed with React and database integration, and supported secure data handling.",
-      "Sithafal Technologies, Software Intern, Dec 2023 to May 2024: developed automation scripts, collaborated with Agile teams, and strengthened debugging and software engineering fundamentals."
+      "Hirello AI, AI Intern, Apr 2026 to May 2026: developed Gemini API applications, RAG systems, semantic search pipelines, prompt optimization, and conversational memory.",
+      "Sithafal Technologies, Generative AI Intern, Dec 2023 to May 2024: built generative AI solutions, automation tools, data preprocessing workflows, feature engineering, testing, and optimization."
     ],
     cards: [
-      { label: "HIRELLO AI", title: "Gemini API Workflows", text: "Integrated LLM features, Python backend logic, React contributions, database integration, and secure data handling." },
-      { label: "SITHAFAL", title: "Automation + Debugging", text: "Built scripts, worked in Agile loops, and strengthened delivery habits across software tasks." },
-      { label: "ROLE PATTERN", title: "AI + Product Glue", text: "Comfortable moving between model-facing logic, backend plumbing, and user-facing behavior." }
+      { label: "HIRELLO AI", title: "LLM + RAG Workflows", text: "Developed Gemini API applications, retrieval pipelines, semantic search, and memory systems." },
+      { label: "SITHAFAL", title: "Generative AI", text: "Built AI solutions and automation workflows for business use cases." },
+      { label: "ROLE PATTERN", title: "AI Systems Builder", text: "Comfortable moving between models, retrieval, backend services, and user-facing behavior." }
     ],
-    tags: ["Hirello AI", "Gemini API", "React", "Automation"]
+    tags: ["Hirello AI", "Sithafal Technologies", "Gemini API", "RAG"]
   },
   projects: {
     kicker: "Projects",
-    title: "Selected work in startup platforms and computer vision.",
-    lead: "The project shelf now mirrors the resume: one full-stack AI startup platform and one computer vision traffic system.",
+    title: "Selected work in chatbots, research automation, and computer vision.",
+    lead: "The project shelf mirrors the resume: AI chatbot, LLM research assistant, and multimodal traffic event understanding.",
     body: [
-      "Cocreate - Startup Platform: built a full-stack startup platform with real-time updates and AI integration using TypeScript, React, Prisma, Supabase, and Vercel.",
-      "Traffic Violation Detection System: developed a Python and OpenCV computer vision system for vehicle detection, tracking, and traffic rule violation identification from video or CCTV footage."
+      "SLIME - AI Chatbot Platform: built a production-ready AI chatbot using Gemini API, LangChain, FastAPI, and React for context-aware responses.",
+      "LLM-Powered Research Assistant: developed RAG pipelines using LangChain, FAISS, PyTorch, vector databases, and embedding-based retrieval.",
+      "Multi-Modal Traffic Event Understanding System: built a deep learning system combining visual and structured traffic data for object detection, tracking, and event classification."
     ],
     cards: [
-      { label: "STARTUP PLATFORM", title: "Cocreate", text: "Full-stack startup platform with AI integration, real-time updates, Prisma ORM, Supabase, and Vercel deployment." },
-      { label: "COMPUTER VISION", title: "Traffic Violation Detection System", text: "Python and OpenCV system for vehicle detection, tracking, and violation identification from video footage." }
+      { label: "CHATBOT", title: "SLIME - AI Chatbot Platform", text: "Gemini API, LangChain, FastAPI, React, semantic search, embeddings, and RAG." },
+      { label: "RESEARCH AI", title: "LLM-Powered Research Assistant", text: "RAG pipelines with vector databases and automated summarization." },
+      { label: "COMPUTER VISION", title: "Multi-Modal Traffic Event Understanding System", text: "PyTorch, OpenCV, TensorFlow, object detection, tracking, and event classification." }
     ],
-    tags: ["Cocreate", "Traffic Detection", "React", "Prisma", "OpenCV"]
+    tags: ["SLIME", "Research Assistant", "Computer Vision", "FastAPI", "PyTorch"]
   },
   certifications: {
     kicker: "Certifications",
@@ -120,12 +123,12 @@ const libraryPanels = {
     lead: "Best fit: internships and roles involving applied machine learning, AI features, automation, data systems, or full-stack product engineering.",
     body: [
       "Available for internships and AI/ML engineering opportunities involving machine learning, intelligent products, automation, and analytics.",
-      "Email: koushikchess12@gmail.com. Phone: +1 (940) 287-4359. GitHub: koushiksarun. LinkedIn: koushik-reddy."
+      "Email: koushikchess12@gmail.com. Phone: +1 (940) 287-4359. GitHub: koushiksarun. LinkedIn: koushiksarunreddy."
     ],
     cards: [
       { label: "EMAIL", title: "koushikchess12@gmail.com", text: "Fastest channel for internship, project, and AI/ML engineering opportunities." },
       { label: "PHONE", title: "+1 (940) 287-4359", text: "Available for recruiting conversations and role-fit discussions." },
-      { label: "PROFILES", title: "GitHub + LinkedIn", text: "GitHub: koushiksarun. LinkedIn: koushik-reddy." }
+      { label: "PROFILES", title: "GitHub + LinkedIn", text: "GitHub: koushiksarun. LinkedIn: koushiksarunreddy." }
     ],
     tags: ["Dallas, TX", "GitHub", "LinkedIn", "Resume Ready"]
   }
@@ -135,22 +138,22 @@ const panelContexts = {
   summary: [
     {
       eyebrow: "WHY THIS MATTERS",
-      title: "Applied AI, not just coursework",
-      text: "The through-line is building useful systems: ML models, LLM workflows, data analysis, forecasting, and backend automation.",
+      title: "LLM, RAG, and computer vision systems",
+      text: "The through-line is building useful AI systems: LLM-powered apps, retrieval pipelines, semantic search, and computer vision workflows.",
       cards: [
-        { label: "PROFILE", title: "AI/ML Engineer", text: "Machine learning and data work paired with practical backend and product delivery." },
-        { label: "SIGNAL", title: "4.0 Graduate Track", text: "M.S. Information Science at UNT with strong academic performance and applied project work." },
-        { label: "DIRECTION", title: "Builder Mindset", text: "Focused on intelligent products that solve concrete workflow problems." }
+        { label: "PROFILE", title: "AI Engineer", text: "LLM, RAG, and computer vision work paired with practical backend delivery." },
+        { label: "SIGNAL", title: "4.0 Graduate Track", text: "M.S. Information Science at UNT, graduated May 2026." },
+        { label: "DIRECTION", title: "AI Systems", text: "Focused on intelligent software that automates concrete workflows." }
       ],
     },
     {
       eyebrow: "OPERATING MODE",
-      title: "Model logic plus product sense",
-      text: "I like connecting data, model behavior, APIs, and the user-facing layer so the final result feels usable.",
+      title: "Models plus retrieval plus APIs",
+      text: "I like connecting model behavior, embeddings, vector search, APIs, and the user-facing layer so the final result feels usable.",
       cards: [
-        { label: "TOOLS", title: "Python + SQL", text: "Core stack for analysis, automation, and ML workflows." },
-        { label: "AI", title: "LLM Integration", text: "Gemini-powered features and prompt/API workflow integration." },
-        { label: "PRODUCT", title: "React + Next.js", text: "Full-stack surfaces for making AI tools accessible." }
+        { label: "TOOLS", title: "Python + FastAPI", text: "Core stack for AI services, automation, and backend workflows." },
+        { label: "AI", title: "Gemini + LangChain", text: "Prompt/API workflows, agents, semantic search, and RAG." },
+        { label: "PRODUCT", title: "React", text: "Frontend surfaces for making AI tools accessible." }
       ],
     },
   ],
@@ -158,109 +161,109 @@ const panelContexts = {
     {
       eyebrow: "ACADEMIC BASE",
       title: "University of North Texas",
-      text: "M.S. Information Science with a 4.0 GPA, centered on applied AI, analytics, and data systems.",
+      text: "M.S. Information Science with a 4.0 GPA, graduated May 2026, centered on AI, analytics, information retrieval, databases, and cloud systems.",
       cards: [
         { label: "DEGREE", title: "M.S. Information Science", text: "Graduate program connecting data, information systems, and applied technical delivery." },
-        { label: "PERFORMANCE", title: "4.0 GPA", text: "Strong academic consistency while building projects and internship experience." },
-        { label: "LOCATION", title: "Dallas, TX", text: "Positioned in a strong market for AI, data, and software roles." }
+        { label: "PERFORMANCE", title: "4.0 GPA", text: "Strong academic consistency while building AI projects and internship experience." },
+        { label: "GRADUATION", title: "May 2026", text: "Completed the master's program at UNT." }
       ],
     },
     {
       eyebrow: "LEARNING THESIS",
-      title: "From data systems to AI products",
-      text: "The degree supports the portfolio: data modeling, analytics, database thinking, visualization, and practical software execution.",
+      title: "From retrieval to AI products",
+      text: "The degree supports the portfolio: data analytics, information retrieval, database thinking, cloud computing, and practical AI execution.",
       cards: [
-        { label: "DATA", title: "Analytics Foundation", text: "Work across statistics, visualization, and predictive analytics." },
-        { label: "SYSTEMS", title: "Database Thinking", text: "Understanding storage, queries, and product data flows." },
-        { label: "DELIVERY", title: "Practical Engineering", text: "Coursework is paired with full-stack and AI workflow projects." }
+        { label: "DATA", title: "Analytics Foundation", text: "Work across data analysis and evidence-driven decisions." },
+        { label: "RETRIEVAL", title: "Information Retrieval", text: "Search, ranking, and retrieval thinking for RAG systems." },
+        { label: "DELIVERY", title: "Cloud Computing", text: "Coursework is paired with deployable AI workflow projects." }
       ],
     },
   ],
   coursework: [
     {
       eyebrow: "CORE MODULES",
-      title: "Machine learning and language systems",
-      text: "Coursework covers Machine Learning, Natural Language Processing, Big Data Analytics, Data Visualization, Database Systems, Predictive Analytics, Statistics, and Cloud and DevOps.",
+      title: "Machine learning, retrieval, and cloud systems",
+      text: "Coursework covers Machine Learning, Data Analytics, Information Retrieval, Database Systems, and Cloud Computing.",
       cards: [
         { label: "ML", title: "Machine Learning", text: "Modeling, training, evaluation, and prediction-oriented workflows." },
-        { label: "NLP", title: "Language Pipelines", text: "Text processing, features, and evaluation for language-focused AI tasks." },
-        { label: "ANALYTICS", title: "Big Data + Stats", text: "Analyzing larger datasets with statistical reasoning and visualization." }
+        { label: "IR", title: "Information Retrieval", text: "Search and retrieval foundations for semantic AI workflows." },
+        { label: "ANALYTICS", title: "Data Analytics", text: "Analyzing datasets with practical decision-oriented methods." }
       ],
     },
     {
       eyebrow: "DELIVERY STACK",
       title: "The parts around the model",
-      text: "The practical edge is knowing how the data, database, cloud, and DevOps layers support the AI feature.",
+      text: "The practical edge is knowing how data, database, cloud, and API layers support the AI feature.",
       cards: [
         { label: "DB", title: "Database Systems", text: "Data organization, retrieval, and backend product structure." },
-        { label: "VIZ", title: "Data Visualization", text: "Turning analysis into readable evidence and decisions." },
-        { label: "OPS", title: "Cloud + DevOps", text: "Deployment and operational thinking for software delivery." }
+        { label: "API", title: "FastAPI Services", text: "Backend interfaces for AI inference and application workflows." },
+        { label: "CLOUD", title: "Cloud Computing", text: "Deployment and operational thinking for software delivery." }
       ],
     },
   ],
   skills: [
     {
       eyebrow: "TECHNICAL STACK",
-      title: "AI/data plus full-stack delivery",
-      text: "Core stack includes Python, SQL, JavaScript, React, Next.js, machine learning workflows, data analysis, and backend automation.",
+      title: "AI systems plus backend delivery",
+      text: "Core stack includes Python, C++, SQL, JavaScript, Java, TypeScript, PyTorch, TensorFlow, Scikit-Learn, FastAPI, React.js, and cloud tooling.",
       cards: [
-        { label: "AI / DATA", title: "Python + SQL", text: "ML workflows, data analysis, automation scripts, and query-driven logic." },
-        { label: "FRONTEND", title: "React + Next.js", text: "Interfaces and full-stack flows for practical AI-enabled products." },
-        { label: "BACKEND", title: "Prisma + Supabase", text: "Database-backed features, utilities, and app infrastructure." }
+        { label: "AI / ML", title: "PyTorch + TensorFlow", text: "Deep learning, generative AI, NLP, computer vision, and model optimization." },
+        { label: "FRONTEND", title: "React.js", text: "Interfaces and frontend flows for practical AI-enabled products." },
+        { label: "BACKEND", title: "FastAPI + Supabase", text: "REST APIs, database-backed features, and AI service infrastructure." }
       ],
     },
     {
       eyebrow: "INTEGRATION LAYER",
       title: "LLM workflows and automation",
-      text: "Hands-on exposure includes Gemini-powered features, Prisma, NextAuth, Supabase utilities, GitHub webhooks, and deployment workflows.",
+      text: "Hands-on exposure includes Gemini-powered features, LangChain, LangGraph, agents, embeddings, vector databases, semantic search, Docker, GitHub, and CI/CD workflows.",
       cards: [
         { label: "LLM", title: "Gemini API", text: "Prompt/API workflows and intelligent feature integration." },
-        { label: "AUTH", title: "NextAuth", text: "Authentication patterns inside full-stack apps." },
-        { label: "AUTOMATION", title: "GitHub Webhooks", text: "Event-driven product and startup review workflows." }
+        { label: "RAG", title: "Embeddings + Vector DBs", text: "Retrieval pipelines for knowledge extraction and answer relevance." },
+        { label: "AUTOMATION", title: "Docker + CI/CD", text: "Delivery workflows for repeatable AI software deployment." }
       ],
     },
   ],
   experience: [
     {
       eyebrow: "CURRENT ROLE",
-      title: "Hirello AI - AI Developer Intern",
-      text: "Integrated Gemini API workflows, built Python backend features, contributed with React and database integration, and supported secure data handling.",
+      title: "Hirello AI - AI Intern",
+      text: "Developed Gemini API applications, RAG systems, semantic search pipelines, prompt optimization, and conversational memory.",
       cards: [
-        { label: "LLM", title: "Gemini Workflows", text: "Connected API behavior to product logic and user-facing flows." },
-        { label: "BACKEND", title: "Python Features", text: "Built backend pieces for automation and AI-enabled functionality." },
-        { label: "PRODUCT", title: "React + Database", text: "Contributed across interface work and persistence/integration layers." }
+        { label: "LLM", title: "Gemini Workflows", text: "Built LLM-powered automation workflows with Python." },
+        { label: "RAG", title: "Semantic Search", text: "Created embeddings and vector database pipelines for retrieval." },
+        { label: "QUALITY", title: "Prompt Optimization", text: "Improved response relevance with prompt and memory systems." }
       ],
     },
     {
       eyebrow: "FOUNDATION ROLE",
-      title: "Sithafal Technologies - Software Intern",
-      text: "Developed automation scripts, collaborated with Agile teams, and strengthened debugging and software engineering fundamentals.",
+      title: "Sithafal Technologies - Generative AI Intern",
+      text: "Developed generative AI solutions, automation tools, data preprocessing, feature engineering, testing, debugging, and optimization.",
       cards: [
-        { label: "AUTOMATION", title: "Scripts", text: "Created tooling to reduce repetitive work and support delivery." },
-        { label: "TEAM", title: "Agile Collaboration", text: "Worked inside team rhythms and iterative software development." },
-        { label: "CRAFT", title: "Debugging", text: "Built fundamentals around reading, testing, and fixing software behavior." }
+        { label: "AUTOMATION", title: "Intelligent Workflows", text: "Created tooling to reduce repetitive manual tasks." },
+        { label: "DATA", title: "Preprocessing", text: "Worked on preprocessing, feature engineering, and model-ready data." },
+        { label: "CRAFT", title: "Testing + Optimization", text: "Strengthened debugging and optimization for ML applications." }
       ],
     },
   ],
   projects: [
     {
-      eyebrow: "STARTUP PLATFORM",
-      title: "Cocreate",
-      text: "Built a full-stack startup platform with real-time updates and AI integration.",
+      eyebrow: "CHATBOT PLATFORM",
+      title: "SLIME - AI Chatbot Platform",
+      text: "Built a production-ready AI chatbot with context-aware responses.",
       cards: [
-        { label: "STACK", title: "TypeScript + React", text: "Frontend and app logic for a startup-focused product experience." },
-        { label: "DATA", title: "Prisma + Supabase", text: "Scalable backend using Prisma ORM and Supabase database workflows." },
-        { label: "DEPLOYMENT", title: "Vercel", text: "Application deployed with domain integration." }
+        { label: "STACK", title: "Python + FastAPI", text: "Backend services supporting real-time AI inference." },
+        { label: "AI", title: "Gemini + LangChain", text: "Context-aware responses with semantic search and RAG." },
+        { label: "FRONTEND", title: "React", text: "Frontend integration for chatbot workflows." }
       ],
     },
     {
-      eyebrow: "COMPUTER VISION",
-      title: "Traffic Violation Detection System",
-      text: "Developed a computer vision system to detect traffic rule violations from video and CCTV footage.",
+      eyebrow: "RESEARCH AI",
+      title: "LLM-Powered Research Assistant",
+      text: "Developed AI-powered research workflows using LLMs and retrieval-based search techniques.",
       cards: [
-        { label: "STACK", title: "Python + OpenCV", text: "Computer vision pipeline for traffic footage analysis." },
-        { label: "LOGIC", title: "Vehicle Tracking", text: "Implemented vehicle detection, tracking, and violation identification logic." },
-        { label: "USE CASE", title: "Smart City Monitoring", text: "Designed for real-time traffic monitoring and city safety applications." }
+        { label: "STACK", title: "LangChain + FAISS", text: "RAG pipelines with vector databases and embedding retrieval." },
+        { label: "MODEL", title: "PyTorch", text: "Foundation model workflows for knowledge extraction." },
+        { label: "OUTPUT", title: "Summarization", text: "Automated synthesis to reduce manual research review." }
       ],
     },
   ],
@@ -300,10 +303,10 @@ const panelContexts = {
     {
       eyebrow: "PROFILES",
       title: "Public technical presence",
-      text: "GitHub: koushiksarun. LinkedIn: koushik-reddy.",
+      text: "GitHub: koushiksarun. LinkedIn: koushiksarunreddy.",
       cards: [
         { label: "GITHUB", title: "koushiksarun", text: "Project code, experiments, and implementation artifacts." },
-        { label: "LINKEDIN", title: "koushik-reddy", text: "Professional profile, education, and experience overview." },
+        { label: "LINKEDIN", title: "koushiksarunreddy", text: "Professional profile, education, and experience overview." },
         { label: "RESUME", title: "Resume Ready", text: "The portfolio is structured around resume sections and role evidence." }
       ],
     },
@@ -410,89 +413,93 @@ if (soundToggle) {
 const sectionPanels = {
   summary: {
     kicker: "Summary",
-    title: "AI/ML engineer focused on practical intelligent systems.",
+    title: "AI engineer building LLM, RAG, and computer vision systems.",
     lead: "Summary",
     body: [
-      "AI/ML engineer with experience in machine learning, data analysis, LLM integrations, forecasting, and backend automation.",
-      "I build practical AI systems that connect data, model logic, APIs, and usable product flows."
+      "AI Engineer with experience developing LLM-powered applications, Retrieval-Augmented Generation systems, and computer vision solutions.",
+      "I build scalable AI software with Python, PyTorch, TensorFlow, FastAPI, and modern retrieval workflows to automate real-world tasks."
     ],
     cards: [
-      { label: "FOCUS", title: "Applied AI", text: "Machine learning, LLM features, forecasting, and automation for real workflows." },
-      { label: "STYLE", title: "Builder Mindset", text: "Useful systems, measurable outcomes, and clear user paths." },
-      { label: "DIRECTION", title: "AI Product Work", text: "Intelligent products that feel usable, not theoretical." }
+      { label: "FOCUS", title: "LLM Applications", text: "Gemini API, LangChain, prompt engineering, conversational memory, and AI automation." },
+      { label: "RETRIEVAL", title: "RAG Systems", text: "Embeddings, vector databases, semantic search, and retrieval-based knowledge workflows." },
+      { label: "VISION", title: "Computer Vision", text: "Deep learning, object detection, tracking, and multimodal traffic event understanding." }
     ],
-    tags: ["Machine Learning", "LLM Integration", "Python", "Automation"]
+    tags: ["LLMs", "RAG", "Computer Vision", "Python"]
   },
   education: {
     kicker: "Education",
     title: "University of North Texas",
     lead: "Education",
     body: [
-      "Master of Science in Information Science, University of North Texas.",
-      "Current GPA: 4.0."
+      "Master of Science in Information Science, University of North Texas, Denton, TX.",
+      "Graduated May 2026 with a 4.0 GPA."
     ],
     cards: [
       { label: "DEGREE", title: "M.S. Information Science", text: "Graduate program at the University of North Texas." },
-      { label: "GPA", title: "4.0", text: "Current graduate GPA." },
-      { label: "SCHOOL", title: "University of North Texas", text: "Information Science graduate study." }
+      { label: "GRADUATION", title: "May 2026", text: "Completed the master's program with strong academic performance." },
+      { label: "GPA", title: "4.0", text: "Coursework centered on AI, analytics, retrieval, data systems, and cloud computing." }
     ],
-    tags: ["UNT", "M.S. Information Science", "4.0 GPA"]
+    tags: ["UNT", "M.S. Information Science", "May 2026", "4.0 GPA"]
   },
   coursework: {
     kicker: "Coursework",
     title: "Coursework",
     lead: "Coursework",
     body: [
-      "Machine Learning, Natural Language Processing, Big Data Analytics, Data Visualization, Database Systems, Predictive Analytics, Statistics, Cloud and DevOps."
+      "Machine Learning, Data Analytics, Information Retrieval, Database Systems, and Cloud Computing."
     ],
     cards: [
-      { label: "AI", title: "Machine Learning + NLP", text: "Modeling, language pipelines, prediction, and evaluation." },
-      { label: "DATA", title: "Big Data + Databases", text: "Scalable analytics, database systems, and data handling." },
-      { label: "DELIVERY", title: "Cloud + DevOps", text: "Cloud and deployment fundamentals." }
+      { label: "AI", title: "Machine Learning", text: "Modeling, training, evaluation, and prediction-oriented workflows." },
+      { label: "SEARCH", title: "Information Retrieval", text: "Retrieval thinking that supports semantic search and RAG systems." },
+      { label: "SYSTEMS", title: "Databases + Cloud", text: "Database systems and cloud computing foundations for deployable AI software." }
     ],
-    tags: ["Machine Learning", "NLP", "Big Data", "Cloud & DevOps"]
+    tags: ["Machine Learning", "Data Analytics", "Information Retrieval", "Cloud Computing"]
   },
   skills: {
     kicker: "Skills",
     title: "Technical Skills",
     lead: "Skills",
     body: [
-      "Python, SQL, JavaScript, React, Next.js, machine learning workflows, data analysis, backend automation, Gemini API, Prisma, NextAuth, Supabase utilities, GitHub webhooks, and deployment workflows."
+      "Languages: Python, C++, SQL, JavaScript, Java, and TypeScript.",
+      "AI stack: PyTorch, TensorFlow, Scikit-Learn, Generative AI, LLMs, RAG, Deep Learning, Computer Vision, NLP, LangChain, LangGraph, AI Agents, Prompt Engineering, Embeddings, Vector Databases, Semantic Search, and Fine-Tuning.",
+      "Systems stack: PySpark, ETL pipelines, Pandas, NumPy, BigQuery, AWS, Azure AI, Docker, Git, GitHub, CI/CD, FastAPI, React.js, REST APIs, MySQL, PostgreSQL, and Supabase."
     ],
     cards: [
-      { label: "AI / DATA", title: "Python + SQL", text: "ML workflows, data analysis, backend automation, and query logic." },
-      { label: "FRONTEND", title: "React + Next.js", text: "Interfaces and full-stack app structure." },
-      { label: "INTEGRATION", title: "LLMs + Databases", text: "Gemini API, Prisma, Supabase utilities, NextAuth, and GitHub webhooks." }
+      { label: "AI / ML", title: "PyTorch + TensorFlow", text: "Deep learning, generative AI, NLP, computer vision, and model optimization." },
+      { label: "AI SYSTEMS", title: "LangChain + RAG", text: "Agents, semantic search, embeddings, vector databases, and prompt engineering." },
+      { label: "BACKEND", title: "FastAPI + Cloud", text: "REST APIs, data pipelines, Docker, CI/CD, AWS, Azure AI, and database-backed apps." }
     ],
-    tags: ["Python", "SQL", "React", "Next.js", "Prisma", "LLMs"]
+    tags: ["Python", "PyTorch", "FastAPI", "LangChain", "RAG", "Docker"]
   },
   experience: {
     kicker: "Experience",
     title: "Professional Experience",
     lead: "Experience",
     body: [
-      "Hirello AI, AI Developer Intern, Apr 2026 to Present.",
-      "Sithafal Technologies, Software Intern, Dec 2023 to May 2024."
+      "Hirello AI, AI Intern, Apr 2026 to May 2026.",
+      "Sithafal Technologies, Generative AI Intern, Dec 2023 to May 2024."
     ],
     cards: [
-      { label: "HIRELLO AI", title: "AI Developer Intern", text: "Integrated Gemini API workflows, built Python backend features, contributed React and database integration work, and supported secure data handling." },
-      { label: "SITHAFAL", title: "Software Intern", text: "Developed automation scripts, collaborated with Agile teams, and strengthened debugging and software engineering fundamentals." }
+      { label: "HIRELLO AI", title: "LLM + RAG Workflows", text: "Developed Gemini API applications, RAG systems, semantic search pipelines, prompt optimization, and conversational memory." },
+      { label: "SITHAFAL", title: "Generative AI Intern", text: "Built generative AI solutions, automation tools, data preprocessing workflows, feature engineering, testing, and optimization." }
     ],
-    tags: ["Hirello AI", "Sithafal Technologies", "Gemini API", "Automation"]
+    tags: ["Hirello AI", "Sithafal Technologies", "Gemini API", "RAG"]
   },
   projects: {
     kicker: "Projects",
     title: "Selected Projects",
-    lead: "Two resume projects: a full-stack startup platform and a computer vision traffic system.",
+    lead: "Resume projects spanning AI chatbots, research automation, and multimodal computer vision.",
     body: [
-      "Cocreate - Startup Platform uses TypeScript, React, Prisma, Supabase, and Vercel to deliver a full-stack startup platform with real-time updates and AI integration.",
-      "Traffic Violation Detection System uses Python, OpenCV, and computer vision to detect traffic rule violations from video or CCTV footage with vehicle detection and tracking logic."
+      "SLIME is an AI chatbot platform built with Python, Gemini API, LangChain, React, and FastAPI for context-aware responses.",
+      "The LLM-Powered Research Assistant uses LangChain, FAISS, PyTorch, vector databases, and embedding-based retrieval to automate knowledge extraction and summarization.",
+      "The Multi-Modal Traffic Event Understanding System combines visual and structured traffic data for object detection, tracking, and event classification."
     ],
     cards: [
-      { label: "STARTUP PLATFORM", title: "Cocreate", text: "Full-stack platform with real-time updates, AI integration, Prisma ORM, Supabase database workflows, and Vercel deployment.", image: "assets/cocreate.svg", link: "https://github.com/koushiksarun/Cocreate", linkText: "Open Cocreate" },
-      { label: "COMPUTER VISION", title: "Traffic Violation Detection System", text: "Python and OpenCV system for vehicle detection, tracking, and traffic rule violation identification from video footage.", image: "assets/traffic-violation.svg", link: "https://github.com/koushiksarun/traffic-violation-detection-", linkText: "Open Project" }
+      { label: "CHATBOT", title: "SLIME - AI Chatbot Platform", text: "Production-ready chatbot using Gemini API, LangChain, FastAPI, React, semantic search, embeddings, and RAG.", link: "https://github.com/koushiksarun", linkText: "Open GitHub" },
+      { label: "RESEARCH AI", title: "LLM-Powered Research Assistant", text: "RAG pipelines with LangChain, FAISS, PyTorch, vector databases, and automated summarization.", link: "https://github.com/koushiksarun", linkText: "Open GitHub" },
+      { label: "COMPUTER VISION", title: "Multi-Modal Traffic Event Understanding System", text: "PyTorch, OpenCV, and TensorFlow system for object detection, tracking, and traffic event classification.", image: "assets/traffic-violation.svg", link: "https://github.com/koushiksarun", linkText: "Open GitHub" }
     ],
-    tags: ["Cocreate", "Traffic Violation Detection", "TypeScript", "React", "OpenCV"]
+    tags: ["SLIME", "Research Assistant", "Computer Vision", "FastAPI", "PyTorch"]
   },
   certifications: {
     kicker: "Certifications",

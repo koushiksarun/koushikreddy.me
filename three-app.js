@@ -79,14 +79,14 @@ function initLibraryScene(container) {
   createShelfStand(root, -4.95, 1.25, 1.35, "left");
   createShelfStand(root, 4.95, 1.25, 1.35, "right");
   createBookColumn(root, interactiveBooks, interactiveTargets, [
-    { key: "summary", title: "Summary", detail: "AI/ML profile + goals", color: "#c38e3d", x: -4.95, y: 2.95, z: 1.58 },
+    { key: "summary", title: "Summary", detail: "LLM, RAG, CV profile", color: "#c38e3d", x: -4.95, y: 2.95, z: 1.58 },
     { key: "education", title: "Education", detail: "UNT graduate path", color: "#7e5f95", x: -4.95, y: 1.98, z: 1.58 },
-    { key: "coursework", title: "Coursework", detail: "ML, NLP, data systems", color: "#7c9871", x: -4.95, y: 1.01, z: 1.58 },
-    { key: "skills", title: "Skills", detail: "Python, SQL, React, LLMs", color: "#5d7f8b", x: -4.95, y: 0.04, z: 1.58 },
+    { key: "coursework", title: "Coursework", detail: "ML, retrieval, cloud", color: "#7c9871", x: -4.95, y: 1.01, z: 1.58 },
+    { key: "skills", title: "Skills", detail: "Python, FastAPI, LLMs", color: "#5d7f8b", x: -4.95, y: 0.04, z: 1.58 },
   ]);
   createBookColumn(root, interactiveBooks, interactiveTargets, [
     { key: "experience", title: "Experience", detail: "AI intern + software work", color: "#b66145", x: 4.95, y: 2.95, z: 1.58 },
-    { key: "projects", title: "Projects", detail: "startup + traffic CV", color: "#46526a", x: 4.95, y: 1.98, z: 1.58 },
+    { key: "projects", title: "Projects", detail: "chatbot, RAG, CV", color: "#46526a", x: 4.95, y: 1.98, z: 1.58 },
     { key: "certifications", title: "Certifications", detail: "proof of technical growth", color: "#9a7a3a", x: 4.95, y: 1.01, z: 1.58 },
   ]);
 
