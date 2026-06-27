@@ -83,11 +83,14 @@ function initLibraryScene(container) {
     { key: "education", title: "Education", detail: "UNT graduate path", color: "#7e5f95", x: -4.95, y: 1.98, z: 1.58 },
     { key: "coursework", title: "Coursework", detail: "ML, retrieval, cloud", color: "#7c9871", x: -4.95, y: 1.01, z: 1.58 },
     { key: "skills", title: "Skills", detail: "Python, FastAPI, LLMs", color: "#5d7f8b", x: -4.95, y: 0.04, z: 1.58 },
+    { key: "skillMap", title: "Skill Map", detail: "AI constellation", color: "#45a29e", x: -4.95, y: -0.93, z: 1.58 },
   ]);
   createBookColumn(root, interactiveBooks, interactiveTargets, [
     { key: "experience", title: "Experience", detail: "AI intern + software work", color: "#b66145", x: 4.95, y: 2.95, z: 1.58 },
     { key: "projects", title: "Projects", detail: "chatbot, RAG, CV", color: "#46526a", x: 4.95, y: 1.98, z: 1.58 },
     { key: "certifications", title: "Certifications", detail: "proof of technical growth", color: "#9a7a3a", x: 4.95, y: 1.01, z: 1.58 },
+    { key: "demoLab", title: "Demo Lab", detail: "project simulations", color: "#a8554c", x: 4.95, y: 0.04, z: 1.58 },
+    { key: "assistant", title: "Assistant", detail: "ask my portfolio", color: "#4f7fb8", x: 4.95, y: -0.93, z: 1.58 },
   ]);
 
   let activeBook = null;

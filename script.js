@@ -516,6 +516,88 @@ const sectionPanels = {
       { label: "MICROSOFT", title: "Azure AI Fundamentals (AI-900)", text: "Microsoft certification for Azure AI concepts and applied AI fundamentals." }
     ],
     tags: ["Google", "IBM", "Microsoft AI-900", "Coursera"]
+  },
+  demoLab: {
+    kicker: "Demo Lab",
+    title: "Interactive project simulations from the AI chatbot stack.",
+    lead: "A recruiter-friendly preview of the systems behind the chatbot zip: streaming chat, RAG retrieval, memory, tools, and human-reviewed feedback.",
+    body: [
+      "The AI chatbot is a production-grade full-stack application with a Next.js 15 frontend, FastAPI backend, LangChain orchestration, LlamaIndex RAG, PostgreSQL, Redis, and ChromaDB or Pinecone vector storage.",
+      "These mini demos show the important product behaviors without requiring a backend server."
+    ],
+    layout: "demoLab",
+    demos: [
+      {
+        label: "CHAT STREAM",
+        title: "SLIME Chatbot",
+        prompt: "How do you answer with memory and citations?",
+        output: "I load conversation context, retrieve relevant document chunks, stream the response, and attach source citations.",
+        meta: ["Next.js", "SSE", "FastAPI", "Gemini/OpenAI"]
+      },
+      {
+        label: "RAG PIPELINE",
+        title: "Document Retrieval",
+        prompt: "Upload -> chunk -> embed -> retrieve",
+        output: "PDF/DOCX/TXT files become 512-token chunks, embeddings are stored in ChromaDB or Pinecone, and top matches are injected into the answer.",
+        meta: ["LlamaIndex", "Embeddings", "Vector DB", "Citations"]
+      },
+      {
+        label: "AGENT MODE",
+        title: "Tools + Guardrails",
+        prompt: "Use tools only when useful.",
+        output: "The ReAct agent can call calculator, weather, or web search tools while FastAPI middleware handles auth, rate limits, and prompt-injection checks.",
+        meta: ["LangChain", "JWT", "Redis", "Security"]
+      }
+    ],
+    tags: ["Demo Lab", "Streaming Chat", "RAG", "Agents"]
+  },
+  skillMap: {
+    kicker: "Skill Constellation",
+    title: "A connected map of the stack I use to build AI systems.",
+    lead: "Skills are grouped by how they work together in real applications: model layer, retrieval layer, backend layer, product layer, data layer, and delivery layer.",
+    body: [
+      "This constellation turns the resume skill list into a system map, making it easier to see how Python, FastAPI, LangChain, RAG, React, databases, Docker, and cloud tooling connect.",
+      "Hover or scan each cluster to see the tools I use in that part of the AI product lifecycle."
+    ],
+    layout: "skillMap",
+    clusters: [
+      { label: "MODEL", title: "AI / ML", skills: ["PyTorch", "TensorFlow", "Scikit-Learn", "NLP", "Computer Vision", "Fine-Tuning"] },
+      { label: "RETRIEVAL", title: "RAG Systems", skills: ["LangChain", "LlamaIndex", "Embeddings", "Semantic Search", "ChromaDB", "Pinecone"] },
+      { label: "BACKEND", title: "APIs + Security", skills: ["FastAPI", "REST APIs", "JWT", "Rate Limiting", "Prompt Injection Checks", "Redis"] },
+      { label: "PRODUCT", title: "Frontend", skills: ["Next.js", "React", "TypeScript", "Tailwind", "SSE Streaming", "Zustand"] },
+      { label: "DATA", title: "Storage", skills: ["PostgreSQL", "SQLAlchemy", "Alembic", "Pandas", "NumPy", "BigQuery"] },
+      { label: "DELIVERY", title: "Cloud + CI", skills: ["Docker", "GitHub Actions", "AWS", "Azure AI", "Nginx", "CI/CD"] }
+    ],
+    tags: ["Skill Map", "AI Systems", "RAG", "Cloud"]
+  },
+  assistant: {
+    kicker: "AI Assistant",
+    title: "A guided portfolio assistant for quick recruiter questions.",
+    lead: "This scripted assistant gives fast answers about my strengths, chatbot architecture, projects, and role fit. It is designed so it can later be connected to the real RAG backend.",
+    body: [
+      "Ask one of the prepared questions to get a concise answer based on the resume and chatbot project.",
+      "The assistant intentionally stays grounded in portfolio facts instead of free-form guessing."
+    ],
+    layout: "assistant",
+    prompts: [
+      {
+        question: "What is Koushik strongest at?",
+        answer: "Koushik is strongest at building applied AI systems: LLM applications, RAG pipelines, FastAPI backends, vector search, and computer vision workflows."
+      },
+      {
+        question: "What is inside the chatbot project?",
+        answer: "The chatbot includes a Next.js 15 frontend, FastAPI backend, LangChain orchestration, LlamaIndex RAG, PostgreSQL, Redis, vector storage, JWT auth, agents, memory, and RLHF feedback review."
+      },
+      {
+        question: "Which roles fit this portfolio?",
+        answer: "Best-fit roles include AI Engineer, Machine Learning Engineer, Generative AI Engineer, RAG Engineer, AI Backend Engineer, and applied AI internship roles."
+      },
+      {
+        question: "Why is this portfolio different?",
+        answer: "It does not only list skills. It turns the resume into an interactive 3D library with project simulations, a skill system map, and an assistant-style recruiter path."
+      }
+    ],
+    tags: ["Portfolio Assistant", "Recruiter Guide", "RAG Ready"]
   }
 };
 
@@ -529,6 +611,92 @@ const renderCard = (card) => `
   </article>
 `;
 
+const renderDemoLab = (panel) => `
+  <div class="demo-lab">
+    ${panel.demos.map((demo) => `
+      <article class="demo-card">
+        <span>${demo.label}</span>
+        <strong>${demo.title}</strong>
+        <div class="demo-terminal">
+          <p class="demo-prompt">${demo.prompt}</p>
+          <p>${demo.output}</p>
+        </div>
+        <div class="demo-meta">
+          ${demo.meta.map((item) => `<em>${item}</em>`).join("")}
+        </div>
+      </article>
+    `).join("")}
+  </div>
+`;
+
+const renderSkillMap = (panel) => `
+  <div class="skill-map">
+    ${panel.clusters.map((cluster) => `
+      <article class="skill-node">
+        <span>${cluster.label}</span>
+        <strong>${cluster.title}</strong>
+        <div>
+          ${cluster.skills.map((skill) => `<em>${skill}</em>`).join("")}
+        </div>
+      </article>
+    `).join("")}
+  </div>
+`;
+
+const renderAssistant = (panel) => `
+  <div class="assistant-console">
+    <div class="assistant-screen" id="assistant-screen">
+      <span>PORTFOLIO ASSISTANT</span>
+      <strong>Ask me about Koushik's AI work.</strong>
+      <p>${panel.prompts[0].answer}</p>
+    </div>
+    <div class="assistant-questions">
+      ${panel.prompts.map((prompt, index) => `
+        <button type="button" data-assistant-answer="${index}">${prompt.question}</button>
+      `).join("")}
+    </div>
+  </div>
+`;
+
+const renderCustomPanel = (panel) => {
+  if (panel.layout === "demoLab") {
+    return renderDemoLab(panel);
+  }
+
+  if (panel.layout === "skillMap") {
+    return renderSkillMap(panel);
+  }
+
+  if (panel.layout === "assistant") {
+    return renderAssistant(panel);
+  }
+
+  return "";
+};
+
+const bindPanelInteractions = (panel) => {
+  if (panel.layout !== "assistant") {
+    return;
+  }
+
+  const screen = document.getElementById("assistant-screen");
+  const buttons = panelBody.querySelectorAll("[data-assistant-answer]");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const prompt = panel.prompts[Number(button.dataset.assistantAnswer)];
+      if (!prompt || !screen) {
+        return;
+      }
+
+      screen.innerHTML = `
+        <span>PORTFOLIO ASSISTANT</span>
+        <strong>${prompt.question}</strong>
+        <p>${prompt.answer}</p>
+      `;
+    });
+  });
+};
+
 const renderPanel = (key) => {
   const panel = sectionPanels[key];
   if (!panel || !bookViewer || !panelKicker || !panelTitle || !panelBody || !panelTags) {
@@ -539,12 +707,14 @@ const renderPanel = (key) => {
   panelTitle.textContent = panel.title;
   const lead = panel.lead ? `<p class="panel-lead">${panel.lead}</p>` : "";
   const body = panel.body.map((text) => `<p>${text}</p>`).join("");
-  const cards = panel.cards.map(renderCard).join("");
+  const cards = panel.cards ? panel.cards.map(renderCard).join("") : "";
+  const custom = renderCustomPanel(panel);
   panelBody.innerHTML = `
     ${lead}
     <div class="panel-copy">${body}</div>
-    <div class="record-grid">${cards}</div>
+    ${custom || `<div class="record-grid">${cards}</div>`}
   `;
+  bindPanelInteractions(panel);
   panelTags.innerHTML = "";
   bookViewer.hidden = false;
   bookViewer.classList.remove("is-opening");

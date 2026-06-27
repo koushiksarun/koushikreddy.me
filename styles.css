@@ -582,6 +582,168 @@ body.is-loading {
   transform: translateY(-2px);
 }
 
+.demo-lab {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.demo-card,
+.skill-node,
+.assistant-console {
+  border: 1px solid rgba(128, 198, 190, 0.24);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(11, 20, 28, 0.88), rgba(10, 13, 19, 0.96)),
+    radial-gradient(circle at top left, rgba(69, 162, 158, 0.16), transparent 46%);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(213, 247, 241, 0.07);
+}
+
+.demo-card {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0.95rem;
+}
+
+.demo-card span,
+.skill-node span,
+.assistant-screen span {
+  color: #7dd3c7;
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.demo-card strong,
+.skill-node strong,
+.assistant-screen strong {
+  display: block;
+  color: #e8fff9;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.04;
+}
+
+.demo-terminal {
+  display: grid;
+  gap: 0.58rem;
+  border: 1px solid rgba(125, 211, 199, 0.2);
+  border-radius: 8px;
+  background: rgba(2, 6, 12, 0.58);
+  padding: 0.8rem;
+}
+
+.demo-terminal p,
+.assistant-screen p {
+  color: rgba(226, 246, 242, 0.84);
+  font-size: 0.86rem;
+  line-height: 1.58;
+}
+
+.demo-terminal .demo-prompt {
+  color: #f5d38b;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.78rem;
+}
+
+.demo-meta,
+.skill-node div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.demo-meta em,
+.skill-node em {
+  border: 1px solid rgba(125, 211, 199, 0.2);
+  border-radius: 999px;
+  color: #c5f5ef;
+  background: rgba(125, 211, 199, 0.08);
+  padding: 0.36rem 0.5rem;
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.skill-map {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.skill-map::before {
+  content: "";
+  position: absolute;
+  inset: 13% 8%;
+  border: 1px solid rgba(125, 211, 199, 0.14);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.skill-node {
+  position: relative;
+  display: grid;
+  gap: 0.72rem;
+  padding: 0.95rem;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.skill-node:hover {
+  border-color: rgba(245, 211, 139, 0.62);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(245, 211, 139, 0.14);
+  transform: translateY(-4px);
+}
+
+.assistant-console {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.52fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.assistant-screen {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  min-height: 17rem;
+  border: 1px solid rgba(125, 211, 199, 0.22);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(3, 9, 16, 0.92), rgba(6, 18, 22, 0.88)),
+    repeating-linear-gradient(180deg, transparent 0, transparent 22px, rgba(125, 211, 199, 0.04) 23px);
+  padding: 1.1rem;
+}
+
+.assistant-questions {
+  display: grid;
+  gap: 0.62rem;
+}
+
+.assistant-questions button {
+  border: 1px solid rgba(245, 211, 139, 0.36);
+  border-radius: 8px;
+  background: rgba(245, 211, 139, 0.11);
+  color: #fff0c8;
+  padding: 0.78rem 0.85rem;
+  font: 900 0.78rem "Manrope", system-ui, sans-serif;
+  line-height: 1.24;
+  text-align: left;
+  cursor: pointer;
+  transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+.assistant-questions button:hover,
+.assistant-questions button:focus-visible {
+  border-color: rgba(245, 211, 139, 0.86);
+  background: rgba(245, 211, 139, 0.2);
+  transform: translateY(-2px);
+}
+
 .project-preview {
   display: block;
   width: 100%;
@@ -674,6 +836,7 @@ body.is-loading {
 .resume-menu-options a:focus-visible,
 .sound-toggle:focus-visible,
 .record-card a:focus-visible,
+.assistant-questions button:focus-visible,
 .book-close:focus-visible {
   outline: 3px solid var(--button-accent);
   outline-offset: 3px;
@@ -856,12 +1019,19 @@ body.is-loading {
 
   .panel-copy,
   .record-grid,
-  .record-section-head {
+  .record-section-head,
+  .demo-lab,
+  .skill-map,
+  .assistant-console {
     grid-template-columns: 1fr;
   }
 
   .record-card {
     min-height: 0;
+  }
+
+  .assistant-screen {
+    min-height: 13rem;
   }
 
   .record-section-head strong {
