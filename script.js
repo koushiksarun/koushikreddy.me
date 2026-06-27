@@ -123,12 +123,12 @@ const libraryPanels = {
     lead: "Best fit: internships and roles involving applied machine learning, AI features, automation, data systems, or full-stack product engineering.",
     body: [
       "Available for internships and AI/ML engineering opportunities involving machine learning, intelligent products, automation, and analytics.",
-      "Email: koushikchess12@gmail.com. Phone: +1 (940) 287-4359. GitHub: koushiksarun. LinkedIn: koushiksarunreddy."
+      "Email: koushikchess12@gmail.com. Phone: +1 (940) 287-4359. GitHub: koushiksarun. LinkedIn: koushik-sarun-reddy-741b86309."
     ],
     cards: [
       { label: "EMAIL", title: "koushikchess12@gmail.com", text: "Fastest channel for internship, project, and AI/ML engineering opportunities." },
       { label: "PHONE", title: "+1 (940) 287-4359", text: "Available for recruiting conversations and role-fit discussions." },
-      { label: "PROFILES", title: "GitHub + LinkedIn", text: "GitHub: koushiksarun. LinkedIn: koushiksarunreddy." }
+      { label: "PROFILES", title: "GitHub + LinkedIn", text: "GitHub: koushiksarun. LinkedIn: koushik-sarun-reddy-741b86309." }
     ],
     tags: ["Dallas, TX", "GitHub", "LinkedIn", "Resume Ready"]
   }
@@ -303,10 +303,10 @@ const panelContexts = {
     {
       eyebrow: "PROFILES",
       title: "Public technical presence",
-      text: "GitHub: koushiksarun. LinkedIn: koushiksarunreddy.",
+      text: "GitHub: koushiksarun. LinkedIn: koushik-sarun-reddy-741b86309.",
       cards: [
         { label: "GITHUB", title: "koushiksarun", text: "Project code, experiments, and implementation artifacts." },
-        { label: "LINKEDIN", title: "koushiksarunreddy", text: "Professional profile, education, and experience overview." },
+        { label: "LINKEDIN", title: "koushik-sarun-reddy-741b86309", text: "Professional profile, education, and experience overview." },
         { label: "RESUME", title: "Resume Ready", text: "The portfolio is structured around resume sections and role evidence." }
       ],
     },
