@@ -574,6 +574,8 @@ const chatMessages = document.getElementById("chat-messages");
 const chatSuggestions = document.getElementById("chat-suggestions");
 const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
+const chatSubmit = chatForm?.querySelector("button");
+let assistantThinking = false;
 
 const assistantSuggestions = [
   "What roles is Koushik a fit for?",
@@ -586,7 +588,7 @@ const assistantSuggestions = [
 const assistantKnowledge = [
   {
     keywords: ["chatbot", "slime", "zip", "project", "architecture", "app"],
-    answer: "The AI chatbot project is a production-grade full-stack generative AI app. It uses Next.js 15, React, TypeScript, Tailwind, and Zustand on the frontend; FastAPI and Python 3.12 on the backend; LangChain for orchestration; LlamaIndex for RAG; PostgreSQL for users/chats/documents/feedback; Redis for caching and rate limits; and ChromaDB or Pinecone for vector search."
+    answer: "SLIME AI is the full-stack chatbot project behind this widget. The production app uses Next.js 15, React, TypeScript, Tailwind, and Zustand on the frontend; FastAPI and Python 3.12 on the backend; LangChain for orchestration; LlamaIndex for RAG; PostgreSQL for users/chats/documents/feedback; Redis for caching and rate limits; and ChromaDB or Pinecone for vector search."
   },
   {
     keywords: ["rag", "retrieval", "embedding", "vector", "document", "citation", "llamaindex"],
@@ -655,6 +657,44 @@ const appendChatMessage = (role, text) => {
   message.innerHTML = `<p>${escapeHtml(text)}</p>`;
   chatMessages.appendChild(message);
   chatMessages.scrollTop = chatMessages.scrollHeight;
+  return message;
+};
+
+const setSuggestionActive = (text) => {
+  if (!chatSuggestions) {
+    return;
+  }
+
+  chatSuggestions.querySelectorAll("button").forEach((button) => {
+    button.classList.toggle("is-active", button.textContent === text);
+  });
+};
+
+const setAssistantThinking = (thinking) => {
+  assistantThinking = thinking;
+  chatAssistant?.classList.toggle("is-thinking", thinking);
+
+  if (chatInput) {
+    chatInput.disabled = thinking;
+  }
+
+  if (chatSubmit) {
+    chatSubmit.disabled = thinking;
+    chatSubmit.textContent = thinking ? "Thinking" : "Send";
+  }
+};
+
+const appendTypingMessage = () => {
+  if (!chatMessages) {
+    return null;
+  }
+
+  const message = document.createElement("div");
+  message.className = "chat-message chat-message-assistant chat-message-typing";
+  message.innerHTML = "<span></span><span></span><span></span>";
+  chatMessages.appendChild(message);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return message;
 };
 
 const getAssistantAnswer = (question) => {
@@ -682,14 +722,21 @@ const getAssistantAnswer = (question) => {
 
 const askAssistant = (question) => {
   const trimmed = question.trim();
-  if (!trimmed) {
+  if (!trimmed || assistantThinking) {
     return;
   }
 
+  setSuggestionActive(trimmed);
   appendChatMessage("user", trimmed);
+  setAssistantThinking(true);
+  const typingMessage = appendTypingMessage();
+
   window.setTimeout(() => {
+    typingMessage?.remove();
     appendChatMessage("assistant", getAssistantAnswer(trimmed));
-  }, 240);
+    setAssistantThinking(false);
+    chatInput?.focus();
+  }, Math.min(900, 360 + trimmed.length * 12));
 };
 
 const setChatOpen = (open) => {
@@ -715,7 +762,7 @@ if (chatAssistant && chatLauncher && chatPanel && chatMessages && chatSuggestion
     chatSuggestions.appendChild(button);
   });
 
-  appendChatMessage("assistant", "Hi, I can answer recruiter questions about Koushik's AI work, resume, projects, and the full-stack chatbot project.");
+  appendChatMessage("assistant", "Hi, I am SLIME AI. Ask me about Koushik's resume, projects, RAG work, or the full-stack chatbot architecture.");
 
   chatLauncher.addEventListener("click", () => {
     setChatOpen(!chatAssistant.classList.contains("is-open"));
